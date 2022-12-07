@@ -1,7 +1,8 @@
 {
-    "name": "react-starter",
+    "name": "afreeca-tv-react",
     "version": "1.0.0",
-    "description": "",
+    "description": "프론트엔드 개발 클론 사이트 포트폴리오입니다.",
+    "homepage": "",
     "main": "./src/index.tsx",
     "scripts": {
         "start": "webpack-dev-server --mode development",
@@ -10,7 +11,7 @@
         "build": "webpack --mode production"
     },
     "keywords": [],
-    "author": "",
+    "author": "박경호(kayheypark)",
     "license": "ISC",
     "devDependencies": {
         "@babel/cli": "^7.19.3",
@@ -20,6 +21,7 @@
         "@babel/preset-typescript": "^7.18.6",
         "@types/react": "^18.0.25",
         "@types/react-dom": "^18.0.9",
+        "@types/styled-components": "^5.1.26",
         "babel-loader": "^9.1.0",
         "css-loader": "^6.7.2",
         "eslint": "^8.28.0",
@@ -29,6 +31,7 @@
         "html-webpack-plugin": "^5.5.0",
         "prettier": "^2.8.0",
         "style-loader": "^3.3.1",
+        "styled-components": "^5.3.6",
         "ts-loader": "^9.4.1",
         "typescript": "^4.9.3",
         "webpack": "^5.75.0",
