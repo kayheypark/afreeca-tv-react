@@ -1,9 +1,9 @@
 # parts
 
-## <Col />
+## Col
 
--   Direction is column
+-   `<Col />` Direction is column
 
-## <Row />
+## Row
 
--   Direction is row
+-   `<Row />` Direction is row
