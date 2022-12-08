@@ -20,6 +20,8 @@ h1,h2,h3,h4,h5,h6 {
 
 ul, ol, dl, li, dd {
     list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 button {
