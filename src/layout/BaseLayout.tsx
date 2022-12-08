@@ -23,13 +23,19 @@ const BaseLayout = ({ children }: IProps) => (
                 <button type="button">더보기</button>
             </div>
         </Header>
-        <div>
+        <View>
             <div>사이드바</div>
             <main>{children}</main>
-        </div>
+        </View>
     </>
 );
 
 export default BaseLayout;
 
-const Header = styled.header``;
+const Header = styled.header`
+    display: flex;
+`;
+
+const View = styled.div`
+    display: flex;
+`;
