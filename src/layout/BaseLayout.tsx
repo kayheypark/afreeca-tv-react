@@ -1,3 +1,5 @@
+import Col from 'component/parts/Col';
+import Row from 'component/parts/Row';
 import styled from 'styled-components';
 
 interface IProps {
@@ -7,24 +9,24 @@ interface IProps {
 const BaseLayout = ({ children }: IProps) => (
     <>
         <Header>
-            <div>
+            <LeftInfo>
                 <h1>
                     <a href="/">afreeca tv</a>
                 </h1>
-            </div>
-            <div>
-                <div>검색창</div>
-            </div>
-            <div>
+                <SearchWrapper>
+                    <input type="text" />
+                </SearchWrapper>
+            </LeftInfo>
+            <Util>
                 <button type="button">방송하기</button>
                 <button type="button">알림</button>
                 <button type="button">로그인</button>
                 <button type="button">설정</button>
                 <button type="button">더보기</button>
-            </div>
+            </Util>
         </Header>
         <View>
-            <div>
+            <SideBar>
                 <ul>
                     <li>홈</li>
                     <li>2022 카타르월드컵</li>
@@ -41,8 +43,8 @@ const BaseLayout = ({ children }: IProps) => (
                     <li>고객센터</li>
                     <li>이벤트</li>
                 </ul>
-            </div>
-            <main>{children}</main>
+            </SideBar>
+            <Main>{children}</Main>
         </View>
     </>
 );
@@ -51,8 +53,36 @@ export default BaseLayout;
 
 const Header = styled.header`
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    padding: 0 28px;
+    border-bottom: 1px solid black;
 `;
 
-const View = styled.div`
+const LeftInfo = styled(Row)`
+    column-gap: 40px;
+`;
+
+const SearchWrapper = styled.div`
     display: flex;
+    align-items: center;
+`;
+
+const Util = styled(Row)`
+    column-gap: 8px;
+`;
+
+const View = styled(Row)`
+    padding: 0 28px;
+`;
+
+const Main = styled.main`
+    padding: 32px 46px 0 46px;
+`;
+
+const SideBar = styled(Col)`
+    border-right: 1px solid black;
+    padding-right: 46px;
+    padding-top: 15px;
 `;
