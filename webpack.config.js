@@ -50,6 +50,7 @@ module.exports = (env, options) => {
             host: 'localhost',
             port: 3000,
             open: true,
+            historyApiFallback: true,
         },
     };
     return config;
