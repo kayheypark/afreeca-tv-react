@@ -1,9 +1,9 @@
 # parts
 
-## Col
+## FlexY
 
 -   `<Col />` Direction is column
 
-## Row
+## FlexX
 
 -   `<Row />` Direction is row
