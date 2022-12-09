@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-const Col = styled.div`
+const FlexY = styled.div`
     display: flex;
     flex-direction: column;
 `;
 
-export default Col;
+export default FlexY;

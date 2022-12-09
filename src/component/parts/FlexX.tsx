@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-const Row = styled.div`
+const FlexX = styled.div`
     display: flex;
     flex-direction: row;
 `;
 
-export default Row;
+export default FlexX;

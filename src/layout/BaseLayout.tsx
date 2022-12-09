@@ -1,5 +1,5 @@
-import Col from 'component/parts/Col';
-import Row from 'component/parts/Row';
+import FlexY from 'component/parts/FlexY';
+import FlexX from 'component/parts/FlexX';
 import styled from 'styled-components';
 
 interface IProps {
@@ -25,7 +25,7 @@ const BaseLayout = ({ children }: IProps) => (
                 <button type="button">더보기</button>
             </Util>
         </Header>
-        <View>
+        <Content>
             <SideBar>
                 <ul>
                     <li>홈</li>
@@ -45,7 +45,7 @@ const BaseLayout = ({ children }: IProps) => (
                 </ul>
             </SideBar>
             <Main>{children}</Main>
-        </View>
+        </Content>
     </>
 );
 
@@ -60,7 +60,7 @@ const Header = styled.header`
     border-bottom: 1px solid black;
 `;
 
-const LeftInfo = styled(Row)`
+const LeftInfo = styled(FlexX)`
     column-gap: 40px;
 `;
 
@@ -69,19 +69,19 @@ const SearchWrapper = styled.div`
     align-items: center;
 `;
 
-const Util = styled(Row)`
+const Util = styled(FlexX)`
     column-gap: 8px;
 `;
 
-const View = styled(Row)`
+const Content = styled(FlexX)`
     padding: 0 28px;
 `;
 
-const Main = styled.main`
+const Main = styled(FlexY).attrs({ as: 'main' })`
     padding: 32px 46px 0 46px;
 `;
 
-const SideBar = styled(Col)`
+const SideBar = styled(FlexY).attrs({ as: 'aside' })`
     border-right: 1px solid black;
     padding-right: 46px;
     padding-top: 15px;
