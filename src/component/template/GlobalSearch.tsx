@@ -30,9 +30,9 @@ const GlobalSearch = () => {
         <Wrapper ref={wrapperRef} isActive={isActive} onClick={() => setIsActive(true)}>
             <InputWrapper>
                 <input type="text" value={keyword} onChange={(e) => setKeyword(e.target.value)} />
-                <button type="button" onClick={handleClickRemoveKeyword}>
+                <RemoveKeywordButton keyword={keyword} onClick={handleClickRemoveKeyword}>
                     검색어 지우기
-                </button>
+                </RemoveKeywordButton>
                 <button type="button" onClick={() => console.info(keyword)}>
                     검색
                 </button>
@@ -61,4 +61,8 @@ const InputWrapper = styled(FlexX).attrs({ as: 'div' })`
         height: 80%;
         font-size: 15px;
     }
+`;
+
+const RemoveKeywordButton = styled(FlexX).attrs({ as: 'button' })<{ keyword: string }>`
+    display: ${(props) => (props.keyword === '' ? 'none' : 'flex')};
 `;
