@@ -4,6 +4,8 @@ import FlexX from 'component/parts/FlexX';
 import FlexY from 'component/parts/FlexY';
 import Color from 'style/variable/color';
 import useBoxblur from 'hook/useBoxblur';
+import icoSearch from 'asset/icon/ico_search.svg';
+import Button from 'component/parts/Button';
 
 const GlobalSearch = () => {
     const wrapperRef = useRef<HTMLDivElement>(null);
@@ -27,9 +29,7 @@ const GlobalSearch = () => {
                 <RemoveKeywordButton keyword={keyword} onClick={handleClickRemoveKeyword}>
                     검색어 지우기
                 </RemoveKeywordButton>
-                <button type="button" onClick={() => console.info(keyword)}>
-                    검색
-                </button>
+                <SubmitButton onClick={() => console.info(keyword)}>검색</SubmitButton>
             </InputWrapper>
             {isActive && <div>최근검색어, 실시간인기검색어, 개인화추천검색어</div>}
         </Wrapper>
@@ -45,6 +45,7 @@ const Wrapper = styled(FlexY).attrs({ as: 'div' })<{ isActive: boolean }>`
 `;
 
 const InputWrapper = styled(FlexX).attrs({ as: 'div' })`
+    position: relative;
     border: 1px solid ${Color.Blue};
     border-radius: 36px;
     height: 34px;
@@ -59,4 +60,10 @@ const InputWrapper = styled(FlexX).attrs({ as: 'div' })`
 
 const RemoveKeywordButton = styled(FlexX).attrs({ as: 'button' })<{ keyword: string }>`
     display: ${(props) => (props.keyword === '' ? 'none' : 'flex')};
+`;
+
+const SubmitButton = styled(Button)`
+    position: absolute;
+    right: 10px;
+    background-image: ${`url(${icoSearch})`};
 `;
