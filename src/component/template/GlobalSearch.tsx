@@ -1,8 +1,9 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import styled from 'styled-components';
 import FlexX from 'component/parts/FlexX';
 import FlexY from 'component/parts/FlexY';
 import Color from 'style/variable/color';
+import useBoxblur from 'hook/useBoxblur';
 
 const GlobalSearch = () => {
     const wrapperRef = useRef<HTMLDivElement>(null);
@@ -14,18 +15,10 @@ const GlobalSearch = () => {
         setKeyword('');
     };
 
-    const handleClickOutside = (e: any) => {
-        if (!wrapperRef.current?.contains(e.target)) {
-            setIsActive(false);
-        }
-    };
-
-    useEffect(() => {
-        window.addEventListener('click', handleClickOutside);
-        return () => {
-            window.removeEventListener('click', handleClickOutside);
-        };
-    }, []);
+    useBoxblur({
+        wrapperRef: wrapperRef,
+        setState: setIsActive,
+    });
 
     return (
         <Wrapper ref={wrapperRef} isActive={isActive} onClick={() => setIsActive(true)}>
