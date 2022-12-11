@@ -1,6 +1,7 @@
 import FlexY from 'component/parts/FlexY';
 import FlexX from 'component/parts/FlexX';
 import styled from 'styled-components';
+import GlobalSearch from 'component/template/GlobalSearch';
 import AfreecaTVLogo from 'asset/logo.svg';
 
 interface IProps {
@@ -14,9 +15,7 @@ const BaseLayout = ({ children }: IProps) => (
                 <Logo>
                     <a href="/">afreeca tv</a>
                 </Logo>
-                <SearchWrapper>
-                    <input type="text" />
-                </SearchWrapper>
+                <GlobalSearch />
             </LeftInfo>
             <Util>
                 <button type="button">방송하기</button>
@@ -62,12 +61,8 @@ const Header = styled.header`
 `;
 
 const LeftInfo = styled(FlexX)`
-    column-gap: 40px;
-`;
-
-const SearchWrapper = styled.div`
-    display: flex;
     align-items: center;
+    column-gap: 40px;
 `;
 
 const Util = styled(FlexX)`
