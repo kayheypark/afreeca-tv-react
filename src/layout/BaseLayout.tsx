@@ -1,6 +1,7 @@
 import FlexY from 'component/parts/FlexY';
 import FlexX from 'component/parts/FlexX';
 import styled from 'styled-components';
+import AfreecaTVLogo from 'asset/logo.svg';
 
 interface IProps {
     children: JSX.Element;
@@ -10,9 +11,9 @@ const BaseLayout = ({ children }: IProps) => (
     <>
         <Header>
             <LeftInfo>
-                <h1>
+                <Logo>
                     <a href="/">afreeca tv</a>
-                </h1>
+                </Logo>
                 <SearchWrapper>
                     <input type="text" />
                 </SearchWrapper>
@@ -85,4 +86,17 @@ const SideBar = styled(FlexY).attrs({ as: 'aside' })`
     border-right: 1px solid black;
     padding-right: 46px;
     padding-top: 15px;
+`;
+
+const Logo = styled(FlexX).attrs({ as: 'h1' })`
+    a {
+        background-image: ${`url(${AfreecaTVLogo})`};
+        background-repeat: no-repeat;
+        background-size: 157px 29px;
+        background-position: center center;
+        width: 157px;
+        height: 100%;
+        color: transparent;
+        font-size: 0;
+    }
 `;
