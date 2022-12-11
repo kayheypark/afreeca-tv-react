@@ -92,10 +92,10 @@ const Logo = styled(FlexX).attrs({ as: 'h1' })`
     a {
         background-image: ${`url(${AfreecaTVLogo})`};
         background-repeat: no-repeat;
-        background-size: 157px 29px;
         background-position: center center;
+        background-size: contain;
         width: 157px;
-        height: 100%;
+        height: 50px;
         color: transparent;
         font-size: 0;
     }
