@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import GlobalSearch from 'component/template/GlobalSearch';
 import AfreecaTVLogo from 'asset/logo.svg';
 import { ColorUI } from 'style/variable/color';
+import GNB from 'component/template/GNB';
 
 interface IProps {
     children: JSX.Element;
@@ -27,24 +28,7 @@ const BaseLayout = ({ children }: IProps) => (
             </Util>
         </Header>
         <Content>
-            <SideBar>
-                <ul>
-                    <li>홈</li>
-                    <li>2022 카타르월드컵</li>
-                    <li>2022 BJ대상</li>
-                    <li>e스포츠</li>
-                    <li>VOD</li>
-                    <li>MY</li>
-                </ul>
-                <hr />
-                <ul>
-                    <li>샵프리카</li>
-                    <li>랭킹</li>
-                    <li>소통센터</li>
-                    <li>고객센터</li>
-                    <li>이벤트</li>
-                </ul>
-            </SideBar>
+            <GNB />
             <Main>{children}</Main>
         </Content>
         <footer>
@@ -136,12 +120,6 @@ const Content = styled(FlexX)`
 
 const Main = styled(FlexY).attrs({ as: 'main' })`
     padding: 32px 46px 0 46px;
-`;
-
-const SideBar = styled(FlexY).attrs({ as: 'aside' })`
-    border-right: 1px solid ${ColorUI.LayoutDivider};
-    padding-right: 46px;
-    padding-top: 15px;
 `;
 
 const Logo = styled(FlexX).attrs({ as: 'h1' })`
