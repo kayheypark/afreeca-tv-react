@@ -31,6 +31,11 @@ const GlobalStyle = createGlobalStyle`
     input:focus {
         outline: none;
     }
+
+    a {
+        color: black;
+        text-decoration: none;
+    }
 `;
 
 export default GlobalStyle;
