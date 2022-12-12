@@ -4,4 +4,6 @@ export const Color = {
 };
 
 export const ColorMean = {};
-export const ColorUI = {};
+export const ColorUI = {
+    LayoutDivider: Color.Gray,
+};

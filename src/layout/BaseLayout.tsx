@@ -3,6 +3,7 @@ import FlexX from 'component/parts/FlexX';
 import styled from 'styled-components';
 import GlobalSearch from 'component/template/GlobalSearch';
 import AfreecaTVLogo from 'asset/logo.svg';
+import { ColorUI } from 'style/variable/color';
 
 interface IProps {
     children: JSX.Element;
@@ -117,7 +118,7 @@ const Header = styled.header`
     align-items: center;
     height: 80px;
     padding: 0 28px;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid ${ColorUI.LayoutDivider};
 `;
 
 const LeftInfo = styled(FlexX)`
@@ -138,7 +139,7 @@ const Main = styled(FlexY).attrs({ as: 'main' })`
 `;
 
 const SideBar = styled(FlexY).attrs({ as: 'aside' })`
-    border-right: 1px solid black;
+    border-right: 1px solid ${ColorUI.LayoutDivider};
     padding-right: 46px;
     padding-top: 15px;
 `;
