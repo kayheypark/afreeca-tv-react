@@ -2,7 +2,7 @@ import { useRef, useState } from 'react';
 import styled from 'styled-components';
 import FlexX from 'component/parts/FlexX';
 import FlexY from 'component/parts/FlexY';
-import Color from 'style/variable/color';
+import { Color } from 'style/variable/color';
 import useBoxblur from 'hook/useBoxblur';
 import icoSearch from 'asset/icon/ico_search.svg';
 import Button from 'component/parts/Button';
