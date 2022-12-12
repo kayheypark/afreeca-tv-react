@@ -1,6 +1,6 @@
 export const Color = {
     Blue: '#4279ff',
-    BlueOC: 'f2f8ff',
+    BlueOC: '#f2f8ff',
     Gray: '#e5ebf2',
 };
 

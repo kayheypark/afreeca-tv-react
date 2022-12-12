@@ -1,5 +1,11 @@
+import BaseLayout from 'layout/BaseLayout';
+
 const Mypage = () => {
-    return <div>Mypage</div>;
+    return (
+        <BaseLayout>
+            <div>Mypage</div>
+        </BaseLayout>
+    );
 };
 
 export default Mypage;
