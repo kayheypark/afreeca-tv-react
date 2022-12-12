@@ -1,5 +1,7 @@
-const Color = {
+export const Color = {
     Blue: '#4279ff',
+    Gray: '#e5ebf2',
 };
 
-export default Color;
+export const ColorMean = {};
+export const ColorUI = {};
