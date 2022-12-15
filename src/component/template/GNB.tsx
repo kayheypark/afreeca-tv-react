@@ -1,4 +1,5 @@
 import FlexY from 'component/parts/FlexY';
+import Icon from 'component/parts/Icon';
 import { IconHome, IconWorldcup, IconCrown, IconEsports, IconVideo, IconStar } from 'lib/icon';
 import { NavLink } from 'react-router-dom';
 import { ColorUI } from 'style/variable/color';
@@ -88,14 +89,7 @@ const MainGNB = styled(FlexY).attrs({ as: 'nav' })`
     }
 `;
 
-const NavIcon = styled.div<{ src: React.FunctionComponent<React.SVGAttributes<SVGElement>> }>`
-    background-image: ${(props) => `url(${props.src})`};
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    width: 22px;
-    height: 22px;
-`;
+const NavIcon = Icon;
 
 const NavText = styled.h2`
     font-weight: normal;
