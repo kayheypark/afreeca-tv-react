@@ -107,7 +107,7 @@ const Header = styled.header`
 
 const LeftInfo = styled(FlexX)`
     align-items: center;
-    column-gap: 40px;
+    column-gap: 60px;
 `;
 
 const Util = styled(FlexX)`

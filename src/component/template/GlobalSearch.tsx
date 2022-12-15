@@ -2,7 +2,7 @@ import { useRef, useState } from 'react';
 import styled from 'styled-components';
 import FlexX from 'component/parts/FlexX';
 import FlexY from 'component/parts/FlexY';
-import { Color } from 'style/variable/color';
+import { Color, ColorMean, ColorUI } from 'style/variable/color';
 import useBoxblur from 'hook/useBoxblur';
 import icoSearch from 'asset/icon/ico_search.svg';
 import Button from 'component/parts/Button';
@@ -44,11 +44,13 @@ const Wrapper = styled(FlexY).attrs({ as: 'div' })<{ isActive: boolean }>`
     box-shadow: ${(props) => (props.isActive ? '0 0 4px #efefef' : 'none')};
     transform: ${(props) => (props.isActive ? 'translate(-1px, 7px)' : 'none')};
     box-sizing: content-box;
+    border-radius: 10px;
+    background-color: ${ColorUI.Background};
 `;
 
 const InputWrapper = styled(FlexX).attrs({ as: 'div' })`
     position: relative;
-    border: 1px solid ${Color.Blue};
+    border: 1px solid ${ColorMean.Primary};
     border-radius: 36px;
     width: 400px;
     height: 34px;
@@ -67,6 +69,9 @@ const RemoveKeywordButton = styled(FlexX).attrs({ as: 'button' })<{ keyword: str
 
 const SubmitButton = styled(Button)`
     position: absolute;
-    right: 10px;
+    right: 4px;
     background-image: ${`url(${icoSearch})`};
+    background-size: 19px;
+    width: 34px;
+    height: 34px;
 `;
