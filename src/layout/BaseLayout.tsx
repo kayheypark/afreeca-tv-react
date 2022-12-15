@@ -120,6 +120,7 @@ const Content = styled(FlexX)`
 
 const Main = styled(FlexY).attrs({ as: 'main' })`
     padding: 32px 46px 0 46px;
+    min-height: calc(100vh - 80px);
 `;
 
 const Logo = styled(FlexX).attrs({ as: 'h1' })`
