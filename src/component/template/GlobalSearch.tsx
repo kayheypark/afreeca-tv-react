@@ -42,12 +42,15 @@ const Wrapper = styled(FlexY).attrs({ as: 'div' })<{ isActive: boolean }>`
     padding: 12px;
     border: ${(props) => (props.isActive ? '1px solid #ecf0f5' : 'none')};
     box-shadow: ${(props) => (props.isActive ? '0 0 4px #efefef' : 'none')};
+    transform: ${(props) => (props.isActive ? 'translate(-1px, 7px)' : 'none')};
+    box-sizing: content-box;
 `;
 
 const InputWrapper = styled(FlexX).attrs({ as: 'div' })`
     position: relative;
     border: 1px solid ${Color.Blue};
     border-radius: 36px;
+    width: 400px;
     height: 34px;
     padding: 0 34px 0 17px;
     align-items: center;
