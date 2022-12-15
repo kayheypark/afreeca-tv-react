@@ -33,7 +33,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     a {
-        color: black;
+        color: #333333;
         text-decoration: none;
     }
 `;
