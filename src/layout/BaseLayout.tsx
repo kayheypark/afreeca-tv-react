@@ -115,7 +115,7 @@ const Util = styled(FlexX)`
 `;
 
 const Content = styled(FlexX)`
-    padding: 0 28px;
+    /* padding: 0 28px; */
 `;
 
 const Main = styled(FlexY).attrs({ as: 'main' })`
