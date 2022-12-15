@@ -52,7 +52,7 @@ export const GNB = () => {
                     </li>
                 </ul>
             </MainGNB>
-            <hr />
+            <Divider />
             <ul>
                 <li>샵프리카</li>
                 <li>랭킹</li>
@@ -94,4 +94,11 @@ const NavIcon = Icon;
 const NavText = styled.h2`
     font-weight: normal;
     font-size: 16px;
+`;
+
+const Divider = styled.hr`
+    border: 1px solid #f5f6f7;
+    width: 100%;
+    height: 1px;
+    margin: 50px 0;
 `;
