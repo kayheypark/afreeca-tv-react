@@ -7,16 +7,37 @@ import useBoxblur from 'hook/useBoxblur';
 import icoSearch from 'asset/icon/ico_search.svg';
 import Button from 'component/parts/Button';
 
+enum ContentModeType {
+    Current = 1,
+    Live,
+    Recommand,
+}
+
 const GlobalSearch = () => {
     const wrapperRef = useRef<HTMLDivElement>(null);
 
     const [isActive, setIsActive] = useState<boolean>(false);
     const [keyword, setKeyword] = useState<string>('');
+    const [contentMode, setContentMode] = useState<ContentModeType>(ContentModeType.Current);
 
-    const handleClickRemoveKeyword = () => {
+    const handleClickRemoveKeyword = (): void => {
         setKeyword('');
     };
 
+    const handleClickContentModeButton = (mode: ContentModeType): void => {
+        setContentMode(mode);
+    };
+
+    const renderContent = (contentMode: ContentModeType): JSX.Element => {
+        switch (contentMode) {
+            case ContentModeType.Current:
+                return <h1>Current</h1>;
+            case ContentModeType.Live:
+                return <h1>Live</h1>;
+            case ContentModeType.Recommand:
+                return <h1>Recommand</h1>;
+        }
+    };
     useBoxblur({
         wrapperRef: wrapperRef,
         setState: setIsActive,
@@ -31,7 +52,31 @@ const GlobalSearch = () => {
                 </RemoveKeywordButton>
                 <SubmitButton onClick={() => console.info(keyword)}>검색</SubmitButton>
             </InputWrapper>
-            {isActive && <div>최근검색어, 실시간인기검색어, 개인화추천검색어</div>}
+            {isActive && (
+                <>
+                    <ContentModeTab>
+                        <li>
+                            <button type="button" onClick={() => handleClickContentModeButton(ContentModeType.Current)}>
+                                최근 검색어
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button" onClick={() => handleClickContentModeButton(ContentModeType.Live)}>
+                                실시간 인기 검색어
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                type="button"
+                                onClick={() => handleClickContentModeButton(ContentModeType.Recommand)}
+                            >
+                                개인화 추천 검색어
+                            </button>
+                        </li>
+                    </ContentModeTab>
+                    {renderContent(contentMode)}
+                </>
+            )}
         </Wrapper>
     );
 };
@@ -74,4 +119,11 @@ const SubmitButton = styled(Button)`
     background-size: 19px;
     width: 34px;
     height: 34px;
+`;
+
+const ContentModeTab = styled(FlexX).attrs({ as: 'ul' })`
+    li {
+    }
+    button {
+    }
 `;
