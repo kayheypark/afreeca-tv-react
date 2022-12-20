@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import FlexX from 'component/parts/FlexX';
 import FlexY from 'component/parts/FlexY';
@@ -38,10 +38,15 @@ const GlobalSearch = () => {
                 return <h1>Recommand</h1>;
         }
     };
+
     useBoxblur({
         wrapperRef: wrapperRef,
         setState: setIsActive,
     });
+
+    useEffect(() => {
+        console.info(isActive);
+    }, [isActive]);
 
     return (
         <Wrapper ref={wrapperRef} isActive={isActive} onClick={() => setIsActive(true)}>
@@ -53,29 +58,44 @@ const GlobalSearch = () => {
                 <SubmitButton onClick={() => console.info(keyword)}>검색</SubmitButton>
             </InputWrapper>
             {isActive && (
-                <>
+                <div>
                     <ContentModeTab>
                         <li>
-                            <button type="button" onClick={() => handleClickContentModeButton(ContentModeType.Current)}>
+                            <ContentModeTabButton
+                                style={{
+                                    borderColor:
+                                        contentMode === ContentModeType.Current ? ColorMean.Primary : 'transparent',
+                                }}
+                                onClick={() => handleClickContentModeButton(ContentModeType.Current)}
+                            >
                                 최근 검색어
-                            </button>
+                            </ContentModeTabButton>
                         </li>
                         <li>
-                            <button type="button" onClick={() => handleClickContentModeButton(ContentModeType.Live)}>
+                            <ContentModeTabButton
+                                style={{
+                                    borderColor:
+                                        contentMode === ContentModeType.Live ? ColorMean.Primary : 'transparent',
+                                }}
+                                onClick={() => handleClickContentModeButton(ContentModeType.Live)}
+                            >
                                 실시간 인기 검색어
-                            </button>
+                            </ContentModeTabButton>
                         </li>
                         <li>
-                            <button
-                                type="button"
+                            <ContentModeTabButton
+                                style={{
+                                    borderColor:
+                                        contentMode === ContentModeType.Recommand ? ColorMean.Primary : 'transparent',
+                                }}
                                 onClick={() => handleClickContentModeButton(ContentModeType.Recommand)}
                             >
                                 개인화 추천 검색어
-                            </button>
+                            </ContentModeTabButton>
                         </li>
                     </ContentModeTab>
                     {renderContent(contentMode)}
-                </>
+                </div>
             )}
         </Wrapper>
     );
@@ -84,13 +104,18 @@ const GlobalSearch = () => {
 export default GlobalSearch;
 
 const Wrapper = styled(FlexY).attrs({ as: 'div' })<{ isActive: boolean }>`
+    position: absolute;
+    left: 244px;
+    top: 10px;
     padding: 12px;
-    border: ${(props) => (props.isActive ? '1px solid #ecf0f5' : 'none')};
+    border-width: 1px;
+    border-style: solid;
+    border-color: ${(props) => (props.isActive ? '#ecf0f5' : 'transparent')};
     box-shadow: ${(props) => (props.isActive ? '0 0 4px #efefef' : 'none')};
-    transform: ${(props) => (props.isActive ? 'translate(-1px, 7px)' : 'none')};
-    box-sizing: content-box;
+    box-sizing: border-box;
     border-radius: 10px;
     background-color: ${ColorUI.Background};
+    row-gap: 19px;
 `;
 
 const InputWrapper = styled(FlexX).attrs({ as: 'div' })`
@@ -105,6 +130,7 @@ const InputWrapper = styled(FlexX).attrs({ as: 'div' })`
         border: 0;
         height: 80%;
         font-size: 15px;
+        width: 100%;
     }
 `;
 
@@ -122,8 +148,17 @@ const SubmitButton = styled(Button)`
 `;
 
 const ContentModeTab = styled(FlexX).attrs({ as: 'ul' })`
+    column-gap: 24px;
     li {
+        display: flex;
     }
-    button {
-    }
+`;
+
+const ContentModeTabButton = styled(FlexX).attrs({ as: 'button' })`
+    border: 0;
+    padding: 0;
+    background-color: transparent;
+    border-bottom: 1px solid transparent;
+    color: #888888;
+    font-size: 12px;
 `;
