@@ -31,7 +31,7 @@ module.exports = (env, options) => {
                     use: ['style-loader', 'css-loader'],
                 },
                 {
-                    test: /\.(png|jp(e*)g|svg|gif)$/,
+                    test: /\.(png|jp(e*)g|svg|gif|ttf)$/,
                     use: ['file-loader'],
                 },
             ],

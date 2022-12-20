@@ -8,9 +8,10 @@ const GlobalStyle = createGlobalStyle`
     body {
         font-size: 14px;
         line-height: 1;
-        font-family: Arial, Helvetica, sans-serif;
+        font-family: 'NanumGothic', Arial, Helvetica, sans-serif;
         margin: 0;
         padding: 0;
+        font-weight: 400;
     }
 
     h1,h2,h3,h4,h5,h6 {
