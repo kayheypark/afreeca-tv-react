@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import FlexX from 'component/parts/FlexX';
 import FlexY from 'component/parts/FlexY';
-import { Color, ColorMean, ColorUI } from 'style/variable/color';
+import { Palette, Color, ColorUI } from 'style/variable/color';
 import useBoxblur from 'hook/useBoxblur';
 import icoSearch from 'asset/icon/ico_search.svg';
 import Button from 'component/parts/Button';
@@ -98,9 +98,7 @@ const GlobalSearch = () => {
                             <ContentModeTabButton
                                 style={{
                                     borderColor:
-                                        contentMode === ContentModeType.CurrentKeyword
-                                            ? ColorMean.Primary
-                                            : 'transparent',
+                                        contentMode === ContentModeType.CurrentKeyword ? Color.Primary : 'transparent',
                                 }}
                                 onClick={() => handleClickContentModeButton(ContentModeType.CurrentKeyword)}
                             >
@@ -111,9 +109,7 @@ const GlobalSearch = () => {
                             <ContentModeTabButton
                                 style={{
                                     borderColor:
-                                        contentMode === ContentModeType.LiveHotKeyword
-                                            ? ColorMean.Primary
-                                            : 'transparent',
+                                        contentMode === ContentModeType.LiveHotKeyword ? Color.Primary : 'transparent',
                                 }}
                                 onClick={() => handleClickContentModeButton(ContentModeType.LiveHotKeyword)}
                             >
@@ -125,7 +121,7 @@ const GlobalSearch = () => {
                                 style={{
                                     borderColor:
                                         contentMode === ContentModeType.RecommandKeyword
-                                            ? ColorMean.Primary
+                                            ? Color.Primary
                                             : 'transparent',
                                 }}
                                 onClick={() => handleClickContentModeButton(ContentModeType.RecommandKeyword)}
@@ -160,7 +156,7 @@ const Wrapper = styled(FlexY).attrs({ as: 'div' })<{ isActive: boolean }>`
 
 const InputWrapper = styled(FlexX).attrs({ as: 'div' })`
     position: relative;
-    border: 1px solid ${ColorMean.Primary};
+    border: 1px solid ${Color.Primary};
     border-radius: 36px;
     width: 400px;
     height: 34px;
@@ -212,7 +208,7 @@ const CurrentKeywordDisplay = styled(FlexX).attrs({ as: 'p' })`
     color: ${ColorUI.Text};
     font-size: 14px;
     em {
-        color: ${ColorMean.Primary};
+        color: ${Color.Primary};
     }
 `;
 
@@ -225,7 +221,7 @@ const AutoSaveCurrentKeywordWrap = styled(FlexX)`
     margin-right: -12px;
     margin-bottom: -12px;
     span {
-        color: ${ColorMean.Secondary};
+        color: ${Color.Secondary};
     }
 `;
 
@@ -237,6 +233,6 @@ const AutoSaveCurrentKeywordButton = styled(FlexX).attrs({ as: 'button' })<{ isO
     border-radius: 15px;
     height: 21px;
     width: 40px;
-    background-color: ${(props) => (props.isOn ? ColorMean.Primary : ColorUI.ButtonOff)};
-    color: ${ColorMean.Empty};
+    background-color: ${(props) => (props.isOn ? Color.Primary : ColorUI.ButtonOff)};
+    color: ${Color.Empty};
 `;
