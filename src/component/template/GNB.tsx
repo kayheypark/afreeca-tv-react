@@ -53,13 +53,23 @@ export const GNB = () => {
                 </ul>
             </MainGNB>
             <Divider />
-            <ul>
-                <li>샵프리카</li>
-                <li>랭킹</li>
-                <li>소통센터</li>
-                <li>고객센터</li>
-                <li>이벤트</li>
-            </ul>
+            <OtherServiceList>
+                <li>
+                    <a href="">샵프리카</a>
+                </li>
+                <li>
+                    <a href="">랭킹</a>
+                </li>
+                <li>
+                    <a href="">소통센터</a>
+                </li>
+                <li>
+                    <a href="">고객센터</a>
+                </li>
+                <li>
+                    <a href="">이벤트</a>
+                </li>
+            </OtherServiceList>
         </GNBWrapper>
     );
 };
@@ -101,4 +111,13 @@ const Divider = styled.hr`
     width: 100%;
     height: 1px;
     margin: 50px 0;
+`;
+
+const OtherServiceList = styled(FlexY).attrs({ as: 'ul' })`
+    row-gap: 15px;
+    padding-left: 24px;
+    a {
+        font-size: 13px;
+        color: ${ColorUI.OtherServiceColor};
+    }
 `;

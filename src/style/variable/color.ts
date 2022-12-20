@@ -4,6 +4,7 @@ export const Palette = {
     Gray: '#e5ebf2',
     Gray8: '#888888',
     Gray3: '#333333',
+    Gray5: '#555555',
     Gray_f5f6f7: '#f5f6f7',
     Gray_8c8c8c: '#8c8c8c',
     White: '#ffffff',
@@ -25,4 +26,5 @@ export const ColorUI = {
     GNBActiveColor: Color.Primary,
     SearchContentModeTabColor: Color.Secondary,
     AutoSaveCurrentKeywordWrapperBackground: Palette.Gray_f5f6f7,
+    OtherServiceColor: Palette.Gray5,
 };
