@@ -29,68 +29,71 @@ const BaseLayout = ({ children }: IProps) => (
         </Header>
         <Content>
             <GNB />
-            <Main>{children}</Main>
+            <Main>
+                {children}
+                <footer>
+                    <div>
+                        <ul>
+                            <li>
+                                <a href="/">회사소개</a>
+                            </li>
+                            <li>
+                                <a href="">서비스 소개</a>
+                            </li>
+                            <li>
+                                <a href="">광고안내</a>
+                            </li>
+                            <li>
+                                <a href="">인재채용</a>
+                            </li>
+                            <li>
+                                <a href="">이용약관</a>
+                            </li>
+                            <li>
+                                <a href="">개인정보처리방침</a>
+                            </li>
+                            <li>
+                                <a href="">청소년보호정책</a>
+                            </li>
+                            <li>
+                                <a href="">운영정책</a>
+                            </li>
+                            <li>
+                                <a href="">권리침해신고센터</a>
+                            </li>
+                            <li>
+                                <a href="">오픈스튜디오</a>
+                            </li>
+                            <li>
+                                <a href="">Developers</a>
+                            </li>
+                            <li>
+                                <a href="">주요서비스</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>(주)아프리카TV</li>
+                            <li>대표이사 : 정찬용</li>
+                            <li>사업자번호 : 220-81-10886</li>
+                            <li>통신판매번호 제2010-경기성남-0834</li>
+                            <li>사업자 정보 확인</li>
+                            <li>호스팅 제공자 : ㈜아프리카TV</li>
+                            <li>
+                                주소 : 경기도 성남시 분당구 판교로228번길 15 판교세븐밴처밸리 1단지 2동
+                                ㈜아프리카TV(삼평동)
+                            </li>
+                            <li>FAX : 031-622-8008</li>
+                            <li>afreecaTV@afreecatv.com (1688-7022)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p>ⓒ AfreecaTV Corp.</p>
+                    </div>
+                </footer>
+            </Main>
         </Content>
-        <footer>
-            <div>
-                <ul>
-                    <li>
-                        <a href="/">회사소개</a>
-                    </li>
-                    <li>
-                        <a href="">서비스 소개</a>
-                    </li>
-                    <li>
-                        <a href="">광고안내</a>
-                    </li>
-                    <li>
-                        <a href="">인재채용</a>
-                    </li>
-                    <li>
-                        <a href="">이용약관</a>
-                    </li>
-                    <li>
-                        <a href="">개인정보처리방침</a>
-                    </li>
-                    <li>
-                        <a href="">청소년보호정책</a>
-                    </li>
-                    <li>
-                        <a href="">운영정책</a>
-                    </li>
-                    <li>
-                        <a href="">권리침해신고센터</a>
-                    </li>
-                    <li>
-                        <a href="">오픈스튜디오</a>
-                    </li>
-                    <li>
-                        <a href="">Developers</a>
-                    </li>
-                    <li>
-                        <a href="">주요서비스</a>
-                    </li>
-                </ul>
-            </div>
-            <div>
-                <ul>
-                    <li>(주)아프리카TV</li>
-                    <li>대표이사 : 정찬용</li>
-                    <li>사업자번호 : 220-81-10886</li>
-                    <li>통신판매번호 제2010-경기성남-0834</li>
-                    <li>사업자 정보 확인</li>
-                    <li>호스팅 제공자 : ㈜아프리카TV</li>
-                    <li>
-                        주소 : 경기도 성남시 분당구 판교로228번길 15 판교세븐밴처밸리 1단지 2동 ㈜아프리카TV(삼평동)
-                    </li>
-                    <li>FAX : 031-622-8008</li>
-                    <li>afreecaTV@afreecatv.com (1688-7022)</li>
-                </ul>
-            </div>
-            <div>
-                <p>ⓒ AfreecaTV Corp.</p>
-            </div>
-        </footer>
     </>
 );
 
