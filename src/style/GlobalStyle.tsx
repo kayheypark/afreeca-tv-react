@@ -36,6 +36,15 @@ const GlobalStyle = createGlobalStyle`
         color: #333333;
         text-decoration: none;
     }
+
+    p {
+        margin: 0;
+        padding: 0;
+    }
+
+    em {
+        font-style: unset;
+    }
 `;
 
 export default GlobalStyle;
