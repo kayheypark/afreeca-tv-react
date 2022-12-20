@@ -7,6 +7,7 @@ import styled from 'styled-components';
 
 const activeStyle: React.CSSProperties = {
     backgroundColor: ColorUI.GNBActiveBG,
+    fontWeight: 700,
 };
 
 export const GNB = () => {
@@ -102,7 +103,7 @@ const MainGNB = styled(FlexY).attrs({ as: 'nav' })`
 const NavIcon = Icon;
 
 const NavText = styled.h2`
-    font-weight: 400;
+    font-weight: inherit;
     font-size: 15px;
 `;
 
