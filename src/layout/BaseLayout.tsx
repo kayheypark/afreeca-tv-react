@@ -1,10 +1,15 @@
 import FlexY from 'component/parts/FlexY';
 import FlexX from 'component/parts/FlexX';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import GlobalSearch from 'component/template/GlobalSearch';
 import AfreecaTVLogo from 'asset/logo.svg';
-import { ColorUI } from 'style/variable/color';
+import { Color, ColorUI, Palette } from 'style/variable/color';
 import GNB from 'component/template/GNB';
+import Button from 'component/parts/Button';
+import IconBroadcast from 'asset/icon/ico_broadcast.svg';
+import IconBell from 'asset/icon/ico_bell.svg';
+import Icon3Dot from 'asset/icon/ico_3dot.svg';
+import Icon4Dot from 'asset/icon/ico_4dot.svg';
 
 interface IProps {
     children: JSX.Element;
@@ -20,11 +25,19 @@ const BaseLayout = ({ children }: IProps) => (
                 <GlobalSearch />
             </LeftInfo>
             <Util>
-                <button type="button">방송하기</button>
-                <button type="button">알림</button>
-                <button type="button">로그인</button>
-                <button type="button">설정</button>
-                <button type="button">더보기</button>
+                <UtilButton src={IconBroadcast} popover={'방송하기'}>
+                    방송하기
+                </UtilButton>
+                <UtilButton src={IconBell} popover={'알림'}>
+                    알림
+                </UtilButton>
+                <button>로그인</button>
+                <UtilButton src={Icon3Dot} popover={'설정'}>
+                    설정
+                </UtilButton>
+                <UtilButton src={Icon4Dot} popover={'더보기'}>
+                    더보기
+                </UtilButton>
             </Util>
         </Header>
         <Content>
@@ -114,7 +127,49 @@ const LeftInfo = styled(FlexX)`
 `;
 
 const Util = styled(FlexX)`
-    column-gap: 8px;
+    column-gap: 16px;
+`;
+
+const UtilButton = styled(Button)<{ src: React.FunctionComponent<React.SVGAttributes<SVGElement>>; popover?: string }>`
+    background-image: ${(props) => `url(${props.src})`};
+    width: 40px;
+    height: 40px;
+    background-size: 100%;
+    border-radius: 20px;
+    transition: all ease 200ms 0s;
+    position: relative;
+    &:hover {
+        background-color: ${Palette.Gray_f5f6f7};
+        &::after {
+            visibility: unset;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 1;
+        }
+    }
+    ${(props) =>
+        props.popover
+            ? css`
+                  &::after {
+                      content: '${props.popover}';
+                      visibility: hidden;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      padding: 5px 10px;
+                      position: absolute;
+                      bottom: -32px;
+                      left: -100%;
+                      font-size: 12px;
+                      font-weight: 700;
+                      transition: inherit;
+                      background-color: #373d40;
+                      color: white;
+                      white-space: nowrap;
+                      opacity: 0;
+                  }
+              `
+            : undefined};
 `;
 
 const Content = styled(FlexX)`

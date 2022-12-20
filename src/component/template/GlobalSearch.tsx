@@ -89,7 +89,9 @@ const GlobalSearch = () => {
                 <RemoveKeywordButton keyword={keyword} onClick={handleClickRemoveKeyword}>
                     검색어 지우기
                 </RemoveKeywordButton>
-                <SubmitButton onClick={() => console.info(keyword)}>검색</SubmitButton>
+                <SubmitButton src={icoSearch} onClick={() => console.info(keyword)}>
+                    검색
+                </SubmitButton>
             </InputWrapper>
             {isActive && (
                 <FlexY>
@@ -174,10 +176,10 @@ const RemoveKeywordButton = styled(FlexX).attrs({ as: 'button' })<{ keyword: str
     display: ${(props) => (props.keyword === '' ? 'none' : 'flex')};
 `;
 
-const SubmitButton = styled(Button)`
+const SubmitButton = styled(Button)<{ src: React.FunctionComponent<React.SVGAttributes<SVGElement>> }>`
     position: absolute;
     right: 4px;
-    background-image: ${`url(${icoSearch})`};
+    background-image: ${(props) => `url(${props.src})`};
     background-size: 19px;
     width: 34px;
     height: 34px;
