@@ -92,8 +92,8 @@ const MainGNB = styled(FlexY).attrs({ as: 'nav' })`
 const NavIcon = Icon;
 
 const NavText = styled.h2`
-    font-weight: normal;
-    font-size: 16px;
+    font-weight: 400;
+    font-size: 15px;
 `;
 
 const Divider = styled.hr`
