@@ -159,6 +159,6 @@ const ContentModeTabButton = styled(FlexX).attrs({ as: 'button' })`
     padding: 0;
     background-color: transparent;
     border-bottom: 1px solid transparent;
-    color: #888888;
+    color: ${ColorUI.SearchContentModeTabColor};
     font-size: 12px;
 `;
