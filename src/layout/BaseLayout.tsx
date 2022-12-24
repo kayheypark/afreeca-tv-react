@@ -10,6 +10,7 @@ import IconBroadcast from 'asset/icon/ico_broadcast.svg';
 import IconBell from 'asset/icon/ico_bell.svg';
 import Icon3Dot from 'asset/icon/ico_3dot.svg';
 import Icon4Dot from 'asset/icon/ico_4dot.svg';
+import PopoverTip from 'asset/icon/ico_popovertip.svg';
 
 interface IProps {
     children: JSX.Element;
@@ -142,31 +143,52 @@ const UtilButton = styled(Button)<{ src: React.FunctionComponent<React.SVGAttrib
         background-color: ${Palette.Gray_f5f6f7};
         &::after {
             visibility: unset;
+            opacity: 1;
             left: 50%;
             transform: translateX(-50%);
+        }
+        &::before {
+            visibility: unset;
             opacity: 1;
+            left: 50%;
+            transform: translateX(-50%);
         }
     }
     ${(props) =>
         props.popover
             ? css`
+                  &::after,
+                  &::before {
+                      position: absolute;
+                      left: 50%;
+                      transform: translateX(-60%);
+                      transition: inherit;
+                      opacity: 0;
+                      visibility: hidden;
+                  }
                   &::after {
                       content: '${props.popover}';
-                      visibility: hidden;
                       display: flex;
                       align-items: center;
                       justify-content: center;
-                      padding: 5px 10px;
-                      position: absolute;
                       bottom: -32px;
-                      left: -100%;
+                      padding: 5px 10px;
                       font-size: 12px;
                       font-weight: 700;
-                      transition: inherit;
-                      background-color: #373d40;
                       color: white;
                       white-space: nowrap;
-                      opacity: 0;
+                      background-color: #373d40;
+                  }
+                  &::before {
+                      content: '';
+                      bottom: -8px;
+                      display: block;
+                      width: 100%;
+                      height: 15px;
+                      background-image: url(${PopoverTip});
+                      background-position: 50% 100%;
+                      background-repeat: no-repeat;
+                      background-size: 10px 5px;
                   }
               `
             : undefined};
