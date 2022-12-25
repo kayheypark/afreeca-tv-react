@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import FlexX from 'component/parts/FlexX';
+import FlexX from 'component/extends/FlexX';
 
 const Button = styled(FlexX).attrs({ as: 'button' })`
     background-position: center center;

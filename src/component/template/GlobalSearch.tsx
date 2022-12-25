@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
-import FlexX from 'component/parts/FlexX';
-import FlexY from 'component/parts/FlexY';
+import FlexX from 'component/extends/FlexX';
+import FlexY from 'component/extends/FlexY';
 import { Palette, Color, ColorUI } from 'style/variable/color';
 import useBoxblur from 'hook/useBoxblur';
 import icoSearch from 'asset/icon/ico_search.svg';
-import Button from 'component/parts/Button';
+import Button from 'component/extends/Button';
 
 enum ContentModeType {
     CurrentKeyword = 1,

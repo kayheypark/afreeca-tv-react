@@ -1,11 +1,11 @@
-import FlexY from 'component/parts/FlexY';
-import FlexX from 'component/parts/FlexX';
+import FlexY from 'component/extends/FlexY';
+import FlexX from 'component/extends/FlexX';
 import styled, { css } from 'styled-components';
 import GlobalSearch from 'component/template/GlobalSearch';
 import AfreecaTVLogo from 'asset/logo.svg';
 import { Color, ColorUI, Palette } from 'style/variable/color';
 import GNB from 'component/template/GNB';
-import Button from 'component/parts/Button';
+import Button from 'component/extends/Button';
 import IconBroadcast from 'asset/icon/ico_broadcast.svg';
 import IconBell from 'asset/icon/ico_bell.svg';
 import Icon3Dot from 'asset/icon/ico_3dot.svg';
@@ -221,7 +221,6 @@ const LoginButton = styled(FlexX).attrs({ as: 'button' })`
     align-items: center;
     justify-content: center;
     font-size: 15px;
-    font-weight: 700;
     color: ${Color.Clearly};
     border: 0;
     padding: 0 6px;
