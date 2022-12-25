@@ -27,6 +27,7 @@ const GlobalStyle = createGlobalStyle`
 
     button {
         cursor: pointer;
+        font-family: inherit;
     }
 
     input:focus {

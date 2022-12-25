@@ -11,6 +11,7 @@ import IconBell from 'asset/icon/ico_bell.svg';
 import Icon3Dot from 'asset/icon/ico_3dot.svg';
 import Icon4Dot from 'asset/icon/ico_4dot.svg';
 import PopoverTip from 'asset/icon/ico_popovertip.svg';
+import { Transition } from 'style/variable/transition';
 
 interface IProps {
     children: JSX.Element;
@@ -32,7 +33,7 @@ const BaseLayout = ({ children }: IProps) => (
                 <UtilButton src={IconBell} popover={'알림'}>
                     알림
                 </UtilButton>
-                <button>로그인</button>
+                <LoginButton>로그인</LoginButton>
                 <UtilButton src={Icon3Dot} popover={'설정'}>
                     설정
                 </UtilButton>
@@ -137,7 +138,7 @@ const UtilButton = styled(Button)<{ src: React.FunctionComponent<React.SVGAttrib
     height: 40px;
     background-size: 100%;
     border-radius: 20px;
-    transition: all ease 200ms 0s;
+    transition: ${Transition.Default};
     position: relative;
     &:hover {
         background-color: ${Palette.Gray_f5f6f7};
@@ -213,5 +214,22 @@ const Logo = styled(FlexX).attrs({ as: 'h1' })`
         height: 50px;
         color: transparent;
         font-size: 0;
+    }
+`;
+
+const LoginButton = styled(FlexX).attrs({ as: 'button' })`
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    font-weight: 700;
+    color: ${Color.Clearly};
+    border: 0;
+    padding: 0 6px;
+    height: 40px;
+    background-color: transparent;
+    transition: ${Transition.Default};
+    &:hover {
+        background-color: ${Palette.Gray_f5f6f7};
+        border-radius: 6px;
     }
 `;
