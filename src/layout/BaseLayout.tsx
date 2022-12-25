@@ -112,6 +112,8 @@ const BaseLayout = ({ children }: IProps) => (
 export default BaseLayout;
 
 const Header = styled.header`
+    position: fixed;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -192,12 +194,11 @@ const UtilButton = styled(Button)<{ src: React.FunctionComponent<React.SVGAttrib
             : undefined};
 `;
 
-const Content = styled(FlexX)`
-    /* padding: 0 28px; */
-`;
+const Content = styled(FlexX)``;
 
 const Main = styled(FlexY).attrs({ as: 'main' })`
-    padding: 32px 46px 0 46px;
+    padding-left: calc(46px + 210px);
+    padding-top: calc(32px + 80px);
     min-height: calc(100vh - 80px);
 `;
 
@@ -231,9 +232,11 @@ const LoginButton = styled(FlexX).attrs({ as: 'button' })`
 `;
 
 const Footer = styled(FlexY).attrs({ as: 'footer' })`
+    align-items: center;
     border-top: 1px solid ${Palette.Gray_e5e5e5};
-    padding-left: 210px;
+    margin-left: 210px;
     padding-top: 25px;
+    padding-bottom: 30px;
 `;
 
 const FooterSection = styled(FlexX).attrs({ as: 'section' })``;
@@ -241,4 +244,6 @@ const FooterSection = styled(FlexX).attrs({ as: 'section' })``;
 const FooterMenus = styled(FlexX).attrs({ as: 'ul' })`
     flex-wrap: wrap;
     column-gap: 12px;
+    align-items: center;
+    justify-content: center;
 `;

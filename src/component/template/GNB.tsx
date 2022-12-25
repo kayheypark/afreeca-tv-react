@@ -78,9 +78,12 @@ export const GNB = () => {
 export default GNB;
 
 const GNBWrapper = styled(FlexY).attrs({ as: 'aside' })`
+    position: fixed;
+    top: 80px;
     border-right: 1px solid ${ColorUI.LayoutDivider};
     padding: 15px 13px 30px 12px;
     width: 210px;
+    height: calc(100vh - 80px);
 `;
 
 const MainGNB = styled(FlexY).attrs({ as: 'nav' })`
