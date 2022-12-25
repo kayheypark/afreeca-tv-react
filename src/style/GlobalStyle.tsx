@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import { ColorUI } from './variable/color';
 
 const GlobalStyle = createGlobalStyle`
     *, *::before, *::after {
@@ -7,22 +8,23 @@ const GlobalStyle = createGlobalStyle`
 
     body {
         font-size: 14px;
+        font-weight: 400;
         line-height: 1;
+        color: ${ColorUI.Text};
         font-family: 'NanumGothic', Arial, Helvetica, sans-serif;
         margin: 0;
         padding: 0;
-        font-weight: 400;
     }
 
-    h1,h2,h3,h4,h5,h6 {
+    h1, h2, h3, h4, h5, h6 {
         margin: 0;
         padding: 0;
     }
 
     ul, ol, dl, li, dd {
         list-style: none;
-        padding: 0;
         margin: 0;
+        padding: 0;
     }
 
     button {
@@ -35,7 +37,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     a {
-        color: #333333;
+        color: ${ColorUI.Text};
         text-decoration: none;
     }
 
