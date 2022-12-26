@@ -85,10 +85,15 @@ const BaseLayout = ({ children }: IProps) => (
                     <li>
                         <a href="">주요서비스</a>
                     </li>
+                    <li>
+                        <select name="" id="">
+                            <option value="">패밀리 사이트</option>
+                        </select>
+                    </li>
                 </FooterMenus>
             </FooterSection>
             <FooterSection>
-                <FooterMenus>
+                <FooterInfos>
                     <li>(주)아프리카TV</li>
                     <li>대표이사 : 정찬용</li>
                     <li>사업자번호 : 220-81-10886</li>
@@ -100,10 +105,10 @@ const BaseLayout = ({ children }: IProps) => (
                     </li>
                     <li>FAX : 031-622-8008</li>
                     <li>afreecaTV@afreecatv.com (1688-7022)</li>
-                </FooterMenus>
+                </FooterInfos>
             </FooterSection>
             <FooterSection>
-                <p>ⓒ AfreecaTV Corp.</p>
+                <Copyright>ⓒ AfreecaTV Corp.</Copyright>
             </FooterSection>
         </Footer>
     </>
@@ -237,13 +242,43 @@ const Footer = styled(FlexY).attrs({ as: 'footer' })`
     margin-left: 210px;
     padding-top: 25px;
     padding-bottom: 30px;
+    row-gap: 12px;
 `;
 
-const FooterSection = styled(FlexX).attrs({ as: 'section' })``;
+const FooterSection = styled(FlexX).attrs({ as: 'section' })`
+    /* align-items: center;
+    justify-content: center; */
+`;
 
 const FooterMenus = styled(FlexX).attrs({ as: 'ul' })`
     flex-wrap: wrap;
     column-gap: 12px;
     align-items: center;
     justify-content: center;
+
+    a {
+        color: #666666;
+        font-size: 14px;
+        letter-spacing: -1px;
+    }
+`;
+
+const FooterInfos = styled(FlexX).attrs({ as: 'ul' })`
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    column-gap: 8px;
+    row-gap: 6px;
+    width: 800px;
+    li,
+    a {
+        font-size: 11px;
+        color: ${Palette.Gray8};
+    }
+`;
+
+const Copyright = styled.p`
+    font-size: 12px;
+    font-weight: 900;
+    color: ${Palette.Gray_5f5f5f};
 `;
