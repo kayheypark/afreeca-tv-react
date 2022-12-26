@@ -2,15 +2,13 @@ import { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import FlexX from 'component/extends/FlexX';
 import FlexY from 'component/extends/FlexY';
-import { Palette, Color, ColorUI } from 'style/variable/color';
+import { Color, ColorUI } from 'style/variable/color';
 import useBoxblur from 'hook/useBoxblur';
-import icoSearch from 'asset/icon/ico_search.svg';
 import Button from 'component/extends/Button';
 import { DummyLiveHotKeyword } from 'lib/dummy/GlobalSearch';
-import icoFlucNew from 'asset/icon/ico_flucnew.svg';
-import icoFlucArrowUp from 'asset/icon/ico_flucarrow_up.svg';
-import icoFlucArrowDown from 'asset/icon/ico_flucarrow_down.svg';
 import { ILiveHotKeyword } from 'lib/model/LiveHotKeyword';
+import LiveHotKeywordList from 'component/organisms/LiveHotKeywordList';
+import { icoSearch } from 'lib/icon';
 
 enum ContentModeType {
     CurrentKeyword = 1,
@@ -74,21 +72,7 @@ const GlobalSearch = () => {
                     </>
                 );
             case ContentModeType.LiveHotKeyword:
-                return (
-                    <LiveHotKeywordList>
-                        {liveHotKeyword?.map((item, index) => {
-                            return (
-                                <LiveHotKeywordItem upDown={item.upDown} showText={item.showText}>
-                                    <a href="#">
-                                        <span>{index + 1}</span>
-                                        <em>{item.keyword}</em>
-                                        <i className={item.upDown}>{item.showText !== 'new' && item.showText}</i>
-                                    </a>
-                                </LiveHotKeywordItem>
-                            );
-                        })}
-                    </LiveHotKeywordList>
-                );
+                return <LiveHotKeywordList items={liveHotKeyword} />;
             case ContentModeType.RecommandKeyword:
                 return <h1>Recommand</h1>;
         }
@@ -258,59 +242,4 @@ const AutoSaveCurrentKeywordButton = styled(FlexX).attrs({ as: 'button' })<{ isO
     width: 40px;
     background-color: ${(props) => (props.isOn ? Color.Primary : ColorUI.ButtonOff)};
     color: ${Color.Empty};
-`;
-
-const LiveHotKeywordList = styled(FlexY).attrs({ as: 'ol' })`
-    padding-top: 10px;
-    margin: 0 -12px;
-`;
-
-const LiveHotKeywordItem = styled(FlexX).attrs({ as: 'li' })<{ upDown: string; showText: string }>`
-    a {
-        display: flex;
-        align-items: center;
-        width: 100%;
-        height: 33px;
-        padding-left: 15px;
-        &:hover {
-            background-color: ${Palette.BlueOC};
-        }
-    }
-    span {
-        font-size: 11px;
-        margin-right: 12px;
-        width: 16px;
-        text-align: right;
-    }
-    i {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        column-gap: 4px;
-        font-size: 11px;
-        margin-right: 15px;
-        margin-left: auto;
-        color: ${(props) => (props.upDown === 'none' ? Palette.Red : undefined)};
-        &.up::before,
-        &.down::before {
-            content: '';
-            display: block;
-            width: 7px;
-            height: 7px;
-        }
-        &.up::before {
-            background-image: url(${icoFlucArrowUp});
-        }
-        &.down::before {
-            background-image: url(${icoFlucArrowDown});
-        }
-        &::before {
-            content: ${(props) => (props.showText === 'new' ? `'new'` : undefined)};
-            font-size: 0;
-            display: block;
-            width: 22px;
-            height: 5px;
-            background-image: ${(props) => (props.showText === 'new' ? `url(${icoFlucNew})` : undefined)};
-        }
-    }
 `;
