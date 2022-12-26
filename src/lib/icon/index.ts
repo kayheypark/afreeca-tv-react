@@ -8,6 +8,10 @@ import icoSearch from 'asset/icon/ico_search.svg';
 import icoFlucNew from 'asset/icon/ico_flucnew.svg';
 import icoFlucArrowUp from 'asset/icon/ico_flucarrow_up.svg';
 import icoFlucArrowDown from 'asset/icon/ico_flucarrow_down.svg';
+import IconBroadcast from 'asset/icon/ico_broadcast.svg';
+import IconBell from 'asset/icon/ico_bell.svg';
+import Icon3Dot from 'asset/icon/ico_3dot.svg';
+import Icon4Dot from 'asset/icon/ico_4dot.svg';
 
 export {
     IconHome,
@@ -20,4 +24,8 @@ export {
     icoFlucNew,
     icoFlucArrowUp,
     icoFlucArrowDown,
+    IconBroadcast,
+    IconBell,
+    Icon3Dot,
+    Icon4Dot,
 };

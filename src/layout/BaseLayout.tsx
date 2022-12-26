@@ -6,12 +6,9 @@ import AfreecaTVLogo from 'asset/logo.svg';
 import { Color, ColorUI, Palette } from 'style/variable/color';
 import GNB from 'component/template/GNB';
 import Button from 'component/extends/Button';
-import IconBroadcast from 'asset/icon/ico_broadcast.svg';
-import IconBell from 'asset/icon/ico_bell.svg';
-import Icon3Dot from 'asset/icon/ico_3dot.svg';
-import Icon4Dot from 'asset/icon/ico_4dot.svg';
 import PopoverTip from 'asset/icon/ico_popovertip.svg';
 import { Transition } from 'style/variable/transition';
+import { IconBroadcast, IconBell, Icon3Dot, Icon4Dot } from 'lib/icon';
 
 interface IProps {
     children: JSX.Element;
