@@ -46,7 +46,7 @@ const GlobalStyle = createGlobalStyle`
         padding: 0;
     }
 
-    em {
+    em, i {
         font-style: unset;
     }
 `;

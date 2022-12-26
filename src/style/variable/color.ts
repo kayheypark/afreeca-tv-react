@@ -1,6 +1,7 @@
 export const Palette = {
     Blue: '#4279ff',
     BlueOC: '#f2f8ff',
+    Red: '#ff3636',
     Gray: '#e5ebf2',
     Gray8: '#888888',
     Gray3: '#333333',
