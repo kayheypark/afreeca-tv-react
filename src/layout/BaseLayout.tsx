@@ -125,6 +125,7 @@ const Header = styled.header`
     height: 80px;
     padding: 0 28px;
     border-bottom: 1px solid ${ColorUI.LayoutDivider};
+    background-color: ${ColorUI.Background};
 `;
 
 const LeftInfo = styled(FlexX)`
