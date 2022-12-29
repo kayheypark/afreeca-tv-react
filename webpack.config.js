@@ -10,6 +10,10 @@ module.exports = (env, options) => {
             path: path.resolve(__dirname, 'dist'),
             filename: 'bundle.[hash].js',
         },
+        resolve: {
+            extensions: ['', '.js', '.jsx', '.ts', '.tsx'],
+            modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+        },
         module: {
             rules: [
                 {
@@ -17,13 +21,6 @@ module.exports = (env, options) => {
                     exclude: /node_modules/,
                     use: {
                         loader: 'babel-loader',
-                        options: {
-                            presets: ['@babel/preset-env', '@babel/preset-react'],
-                        },
-                    },
-                    resolve: {
-                        extensions: ['', '.js', '.jsx', '.ts', '.tsx'],
-                        modules: [path.resolve(__dirname, 'src'), 'node_modules'],
                     },
                 },
                 {
