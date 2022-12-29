@@ -1,5 +1,4 @@
-import FlexX from 'component/extends/FlexX';
-import FlexY from 'component/extends/FlexY';
+import { List, Item } from 'component/morecule/List';
 import { icoFlucArrowUp, icoFlucArrowDown, icoFlucNew } from 'lib/icon';
 import { ILiveHotKeyword } from 'lib/model/LiveHotKeyword';
 import { Palette } from 'style/variable/color';
@@ -11,40 +10,30 @@ interface IProps {
 
 const LiveHotKeywordList = ({ items }: IProps) => {
     return (
-        <List>
+        <LHKList>
             {items?.map((row, index) => {
                 return (
-                    <Item upDown={row.upDown} showText={row.showText}>
+                    <LHKItem upDown={row.upDown} showText={row.showText}>
                         <a href="#">
                             <span>{index + 1}</span>
                             <em>{row.keyword}</em>
                             <i className={row.upDown}>{row.showText !== 'new' && row.showText}</i>
                         </a>
-                    </Item>
+                    </LHKItem>
                 );
             })}
-        </List>
+        </LHKList>
     );
 };
 
 export default LiveHotKeywordList;
 
-const List = styled(FlexY).attrs({ as: 'ol' })`
+const LHKList = styled(List)`
     padding-top: 10px;
     margin: 0 -12px;
 `;
 
-const Item = styled(FlexX).attrs({ as: 'li' })<{ upDown: string; showText: string }>`
-    a {
-        display: flex;
-        align-items: center;
-        width: 100%;
-        height: 33px;
-        padding-left: 15px;
-        &:hover {
-            background-color: ${Palette.BlueOC};
-        }
-    }
+const LHKItem = styled(Item)<{ upDown: string; showText: string }>`
     span {
         font-size: 11px;
         margin-right: 12px;

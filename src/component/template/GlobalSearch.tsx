@@ -7,7 +7,7 @@ import useBoxblur from 'hook/useBoxblur';
 import Button from 'component/extends/Button';
 import { DummyLiveHotKeyword } from 'lib/dummy/GlobalSearch';
 import { ILiveHotKeyword } from 'lib/model/LiveHotKeyword';
-import LiveHotKeywordList from 'component/organisms/LiveHotKeywordList';
+import LiveHotKeywordList from 'component/organism/LiveHotKeywordList';
 import { icoSearch } from 'lib/icon';
 
 enum ContentModeType {
