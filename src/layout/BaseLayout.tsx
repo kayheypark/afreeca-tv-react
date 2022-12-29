@@ -1,11 +1,11 @@
-import FlexY from 'component/extends/FlexY';
-import FlexX from 'component/extends/FlexX';
+import FlexY from 'component/atom/FlexY';
+import FlexX from 'component/atom/FlexX';
 import styled, { css } from 'styled-components';
 import GlobalSearch from 'component/template/GlobalSearch';
 import AfreecaTVLogo from 'asset/logo.svg';
 import { Color, ColorUI, Palette } from 'style/variable/color';
 import GNB from 'component/template/GNB';
-import Button from 'component/extends/Button';
+import Button from 'component/atom/Button';
 import PopoverTip from 'asset/icon/ico_popovertip.svg';
 import { Transition } from 'style/variable/transition';
 import { IconBroadcast, IconBell, Icon3Dot, Icon4Dot } from 'lib/icon';

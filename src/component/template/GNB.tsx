@@ -1,5 +1,5 @@
-import FlexY from 'component/extends/FlexY';
-import Icon from 'component/extends/Icon';
+import FlexY from 'component/atom/FlexY';
+import Icon from 'component/atom/Icon';
 import { IconHome, IconWorldcup, IconCrown, IconEsports, IconVideo, IconStar } from 'lib/icon';
 import { NavLink } from 'react-router-dom';
 import { ColorUI } from 'style/variable/color';

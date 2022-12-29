@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
-import FlexX from 'component/extends/FlexX';
-import FlexY from 'component/extends/FlexY';
+import FlexX from 'component/atom/FlexX';
+import FlexY from 'component/atom/FlexY';
 import { Color, ColorUI } from 'style/variable/color';
 import useBoxblur from 'hook/useBoxblur';
-import Button from 'component/extends/Button';
+import Button from 'component/atom/Button';
 import { DummyLiveHotKeyword } from 'lib/dummy/GlobalSearch';
 import { ILiveHotKeyword } from 'lib/model/LiveHotKeyword';
 import LiveHotKeywordList from 'component/organism/LiveHotKeywordList';

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import FlexX from 'component/extends/FlexX';
-import FlexY from 'component/extends/FlexY';
+import FlexX from 'component/atom/FlexX';
+import FlexY from 'component/atom/FlexY';
 import { Palette } from 'style/variable/color';
 
 export const List = styled(FlexY).attrs({ as: 'ol' })``;

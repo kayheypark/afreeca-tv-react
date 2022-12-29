@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import FlexX from 'component/extends/FlexX';
-import FlexY from 'component/extends/FlexY';
+import FlexX from 'component/atom/FlexX';
+import FlexY from 'component/atom/FlexY';
 import styled from 'styled-components';
 import BannerImage1 from 'asset/content/main_swiper_1.png';
 import { Palette, Color } from 'style/variable/color';
