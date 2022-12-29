@@ -3,6 +3,7 @@ import Icon from 'component/extends/Icon';
 import { IconHome, IconWorldcup, IconCrown, IconEsports, IconVideo, IconStar } from 'lib/icon';
 import { NavLink } from 'react-router-dom';
 import { ColorUI } from 'style/variable/color';
+import { Length } from 'style/variable/spacing';
 import styled from 'styled-components';
 
 const activeStyle: React.CSSProperties = {
@@ -10,7 +11,7 @@ const activeStyle: React.CSSProperties = {
     fontWeight: 700,
 };
 
-export const GNB = () => {
+const GNB = () => {
     return (
         <GNBWrapper>
             <MainGNB>
@@ -79,11 +80,11 @@ export default GNB;
 
 const GNBWrapper = styled(FlexY).attrs({ as: 'aside' })`
     position: fixed;
-    top: 80px;
+    top: ${Length.Header.Height};
     border-right: 1px solid ${ColorUI.LayoutDivider};
     padding: 15px 13px 30px 12px;
-    width: 210px;
-    height: calc(100vh - 80px);
+    width: ${Length.SideBar.Width};
+    height: calc(100vh - ${Length.Header.Height});
 `;
 
 const MainGNB = styled(FlexY).attrs({ as: 'nav' })`

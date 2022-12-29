@@ -9,6 +9,8 @@ import Button from 'component/extends/Button';
 import PopoverTip from 'asset/icon/ico_popovertip.svg';
 import { Transition } from 'style/variable/transition';
 import { IconBroadcast, IconBell, Icon3Dot, Icon4Dot } from 'lib/icon';
+import { Length } from 'style/variable/spacing';
+import { ZIndex } from 'style/variable/zIndex';
 
 interface IProps {
     children: JSX.Element;
@@ -119,10 +121,11 @@ const Header = styled.header`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 80px;
+    height: ${Length.Header.Height};
     padding: 0 28px;
     border-bottom: 1px solid ${ColorUI.LayoutDivider};
     background-color: ${ColorUI.Background};
+    z-index: ${ZIndex.Header};
 `;
 
 const LeftInfo = styled(FlexX)`
@@ -200,9 +203,12 @@ const UtilButton = styled(Button)<{ src: React.FunctionComponent<React.SVGAttrib
 const Content = styled(FlexX)``;
 
 const Main = styled(FlexY).attrs({ as: 'main' })`
-    padding-left: calc(46px + 210px);
-    padding-top: calc(32px + 80px);
-    min-height: calc(100vh - 80px);
+    width: 100%;
+    /* padding-left: calc(46px + 210px); */
+    padding-left: ${Length.SideBar.Width};
+    /* padding-top: calc(32px + 80px); */
+    padding-top: ${Length.Header.Height};
+    min-height: calc(100vh - ${Length.Header.Height});
 `;
 
 const Logo = styled(FlexX).attrs({ as: 'h1' })`
@@ -237,7 +243,7 @@ const LoginButton = styled(FlexX).attrs({ as: 'button' })`
 const Footer = styled(FlexY).attrs({ as: 'footer' })`
     align-items: center;
     border-top: 1px solid ${Palette.Gray_e5e5e5};
-    margin-left: 210px;
+    margin-left: ${Length.SideBar.Width};
     padding-top: 25px;
     padding-bottom: 30px;
     row-gap: 12px;
