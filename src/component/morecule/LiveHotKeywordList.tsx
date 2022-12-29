@@ -1,4 +1,4 @@
-import { List, Item } from 'component/morecule/List';
+import { List, Item } from 'component/atom/List';
 import { icoFlucArrowUp, icoFlucArrowDown, icoFlucNew } from 'lib/icon';
 import { ILiveHotKeyword } from 'lib/model/LiveHotKeyword';
 import { Palette } from 'style/variable/color';
