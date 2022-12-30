@@ -8,7 +8,7 @@ import Button from 'component/atom/Button';
 import { DummyLiveHotKeyword } from 'lib/dummy/GlobalSearch';
 import { ILiveHotKeyword } from 'lib/model/LiveHotKeyword';
 import LiveHotKeywordList from 'component/morecule/LiveHotKeywordList';
-import { icoSearch } from 'lib/icon';
+import { icoSearch, IconCloseWhite } from 'lib/icon';
 
 enum ContentModeType {
     CurrentKeyword = 1,
@@ -177,8 +177,16 @@ const InputWrapper = styled(FlexX).attrs({ as: 'div' })`
     }
 `;
 
-const RemoveKeywordButton = styled(FlexX).attrs({ as: 'button' })<{ keyword: string }>`
+const RemoveKeywordButton = styled(Button).attrs({ as: 'button' })<{ keyword: string }>`
     display: ${(props) => (props.keyword === '' ? 'none' : 'flex')};
+    background-image: url(${IconCloseWhite});
+    width: 18px;
+    height: 18px;
+    background-color: #dddddd;
+    border-radius: 9px;
+    background-size: 10px;
+    position: absolute;
+    right: 45px;
 `;
 
 const SubmitButton = styled(Button)<{ src: React.FunctionComponent<React.SVGAttributes<SVGElement>> }>`

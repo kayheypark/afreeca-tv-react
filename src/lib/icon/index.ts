@@ -14,6 +14,7 @@ import Icon3Dot from 'asset/icon/ico_3dot.svg';
 import Icon4Dot from 'asset/icon/ico_4dot.svg';
 import IconSliderArrowPrev from 'asset/icon/ico_slider_arrow_left.svg';
 import IconSliderArrowNext from 'asset/icon/ico_slider_arrow_right.svg';
+import IconCloseWhite from 'asset/icon/ico_close_white.svg';
 
 export {
     IconHome,
@@ -32,4 +33,5 @@ export {
     Icon4Dot,
     IconSliderArrowPrev,
     IconSliderArrowNext,
+    IconCloseWhite,
 };
