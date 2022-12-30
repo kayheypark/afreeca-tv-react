@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation } from 'swiper';
 import 'swiper/css';
+import 'swiper/css/navigation';
 import FlexX from 'component/atom/FlexX';
 import FlexY from 'component/atom/FlexY';
 import styled from 'styled-components';
@@ -11,6 +13,8 @@ const MainBanner = () => {
     return (
         <Wrapper>
             <Swiper
+                modules={[Navigation]}
+                navigation
                 spaceBetween={0}
                 slidesPerView={3}
                 // onSlideChange={() => console.log('slide change')}
