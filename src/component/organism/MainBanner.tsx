@@ -52,7 +52,7 @@ const MainBanner = () => {
                 {items?.map((item) => {
                     return (
                         <SwiperSlide tag="li">
-                            <Anchor to="">
+                            <Anchor to={item.URL} target="_blank">
                                 <Image src={item.imageURL} />
                                 <TextWapper>
                                     <span>{item.periodText}</span>

@@ -9,17 +9,20 @@ export const DummyMainBanner: IMainBanner[] = [
         titleText: '강남좀비',
         subText: '시사회 이벤트\n댓글달고 영화보자!',
         imageURL: BannerImage1,
+        URL: '/',
     },
     {
         periodText: '1/10(화) 오후 2시',
         titleText: '취미가 곧 컨텐츠다',
         subText: '당신의 취미를\n보여주세요!',
         imageURL: BannerImage2,
+        URL: '/',
     },
     {
         periodText: '1/7(토) 저녁 6시',
         titleText: '데니안 Danny’s Day',
         subText: '덴생네컷!\n온라인 관람 티켓 판매 중',
         imageURL: BannerImage3,
+        URL: '/',
     },
 ];

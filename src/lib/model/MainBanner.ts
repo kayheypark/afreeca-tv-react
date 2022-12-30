@@ -3,4 +3,5 @@ export interface IMainBanner {
     titleText: string;
     subText: string;
     imageURL: string;
+    URL: string;
 }
