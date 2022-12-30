@@ -102,6 +102,8 @@ const TextWapper = styled(FlexY).attrs({ as: 'div' })`
     p {
         font-size: 15px;
         color: ${Palette.Gray5};
+        white-space: pre;
+        line-height: 18px;
     }
 `;
 
