@@ -12,6 +12,8 @@ import IconBroadcast from 'asset/icon/ico_broadcast.svg';
 import IconBell from 'asset/icon/ico_bell.svg';
 import Icon3Dot from 'asset/icon/ico_3dot.svg';
 import Icon4Dot from 'asset/icon/ico_4dot.svg';
+import IconSliderArrowPrev from 'asset/icon/ico_slider_arrow_left.svg';
+import IconSliderArrowNext from 'asset/icon/ico_slider_arrow_right.svg';
 
 export {
     IconHome,
@@ -28,4 +30,6 @@ export {
     IconBell,
     Icon3Dot,
     Icon4Dot,
+    IconSliderArrowPrev,
+    IconSliderArrowNext,
 };

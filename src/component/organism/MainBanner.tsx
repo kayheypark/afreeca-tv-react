@@ -8,17 +8,41 @@ import FlexY from 'component/atom/FlexY';
 import styled from 'styled-components';
 import BannerImage1 from 'asset/content/main_swiper_1.png';
 import { Palette, Color } from 'style/variable/color';
+import React, { useRef } from 'react';
+import { IconSliderArrowNext, IconSliderArrowPrev } from 'lib/icon';
 
 const MainBanner = () => {
+    const prevRef = useRef<HTMLButtonElement>(null);
+    const nextRef = useRef<HTMLButtonElement>(null);
     return (
         <Wrapper>
             <Swiper
                 modules={[Navigation]}
-                navigation
+                navigation={{ prevEl: prevRef.current, nextEl: nextRef.current }}
+                onSwiper={(swiper) => {
+                    // Delay execution for the refs to be defined
+                    setTimeout(() => {
+                        // Override prevEl & nextEl now that refs are defined
+                        if (swiper.params.navigation) {
+                            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                            // @ts-ignore
+                            // eslint-disable-next-line no-param-reassign
+                            swiper.params.navigation.prevEl = prevRef.current;
+                            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                            // @ts-ignore
+                            // eslint-disable-next-line no-param-reassign
+                            swiper.params.navigation.nextEl = nextRef.current;
+
+                            // Re-init navigation
+                            swiper.navigation.destroy();
+                            swiper.navigation.init();
+                            swiper.navigation.update();
+                        }
+                    });
+                }}
                 spaceBetween={0}
                 slidesPerView={3}
-                // onSlideChange={() => console.log('slide change')}
-                // onSwiper={(swiper) => console.log(swiper)}
+                slidesOffsetAfter={42}
                 loop={true}
                 wrapperTag="ul"
             >
@@ -36,6 +60,8 @@ const MainBanner = () => {
                         </SwiperSlide>
                     );
                 })}
+                <PrevBtn ref={prevRef}>이전 슬라이드</PrevBtn>
+                <NextBtn ref={nextRef}>다음 슬라이드</NextBtn>
             </Swiper>
         </Wrapper>
     );
@@ -81,4 +107,32 @@ const Image = styled(FlexX).attrs({ as: 'div' })`
     background-repeat: no-repeat;
     width: 184px;
     height: 100px;
+`;
+
+const NavBtn = styled.button`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0;
+    width: 42px;
+    height: calc(100% + 2.4px);
+    background-size: 10px auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: white;
+    border: 0;
+`;
+
+const PrevBtn = styled(NavBtn)`
+    background-image: url(${IconSliderArrowPrev});
+    left: 0;
+`;
+
+const NextBtn = styled(NavBtn)`
+    background-image: url(${IconSliderArrowNext});
+    right: 0;
 `;
