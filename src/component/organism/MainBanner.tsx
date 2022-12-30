@@ -6,12 +6,15 @@ import 'swiper/css/navigation';
 import FlexX from 'component/atom/FlexX';
 import FlexY from 'component/atom/FlexY';
 import styled from 'styled-components';
-import BannerImage1 from 'asset/content/main_swiper_1.png';
 import { Palette, Color } from 'style/variable/color';
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { IconSliderArrowNext, IconSliderArrowPrev } from 'lib/icon';
+import { DummyMainBanner } from 'lib/dummy/MainBanner';
+import { IMainBanner } from 'lib/model/MainBanner';
 
 const MainBanner = () => {
+    const [items, setItems] = useState<IMainBanner[] | undefined>(DummyMainBanner);
+
     const prevRef = useRef<HTMLButtonElement>(null);
     const nextRef = useRef<HTMLButtonElement>(null);
     return (
@@ -42,19 +45,19 @@ const MainBanner = () => {
                 }}
                 spaceBetween={0}
                 slidesPerView={3}
-                slidesOffsetAfter={42}
                 loop={true}
                 wrapperTag="ul"
+                style={{ padding: '0 42px' }}
             >
-                {[1, 2, 3, 4].map((item) => {
+                {items?.map((item) => {
                     return (
                         <SwiperSlide tag="li">
                             <Anchor to="">
-                                <Image />
+                                <Image src={item.imageURL} />
                                 <TextWapper>
-                                    <span>12/29(목) 오후 4시 30분</span>
-                                    <strong>22-23 WKBL 퓨처스리그</strong>
-                                    <p>하나원큐 vs 삼성생명</p>
+                                    <span>{item.periodText}</span>
+                                    <strong>{item.titleText}</strong>
+                                    <p>{item.subText}</p>
                                 </TextWapper>
                             </Anchor>
                         </SwiperSlide>
@@ -102,8 +105,8 @@ const TextWapper = styled(FlexY).attrs({ as: 'div' })`
     }
 `;
 
-const Image = styled(FlexX).attrs({ as: 'div' })`
-    background-image: url(${BannerImage1});
+const Image = styled(FlexX).attrs({ as: 'div' })<{ src: string }>`
+    background-image: ${(props) => (props.src ? `url(${props.src})` : undefined)};
     background-repeat: no-repeat;
     width: 184px;
     height: 100px;
