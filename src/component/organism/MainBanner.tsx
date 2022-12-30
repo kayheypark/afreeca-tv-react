@@ -11,6 +11,7 @@ import React, { useRef, useState } from 'react';
 import { IconSliderArrowNext, IconSliderArrowPrev } from 'lib/icon';
 import { DummyMainBanner } from 'lib/dummy/MainBanner';
 import { IMainBanner } from 'lib/model/MainBanner';
+import { BannerType } from 'lib/enum/MainBanner';
 
 const MainBanner = () => {
     const [items, setItems] = useState<IMainBanner[] | undefined>(DummyMainBanner);
@@ -47,13 +48,15 @@ const MainBanner = () => {
                 slidesPerView={3}
                 loop={true}
                 wrapperTag="ul"
-                style={{ padding: '0 42px' }}
+                // style={{ padding: '0 42px' }}
             >
                 {items?.map((item) => {
                     return (
-                        <SwiperSlide tag="li">
+                        <SwiperSlide key={item.id} tag="li">
                             <Anchor to={item.URL} target="_blank">
-                                <Image src={item.imageURL} />
+                                <Image src={item.imageURL}>
+                                    {item.bannerType === BannerType.Live && <Badge>LIVE</Badge>}
+                                </Image>
                                 <TextWapper>
                                     <span>{item.periodText}</span>
                                     <strong>{item.titleText}</strong>
@@ -108,6 +111,7 @@ const TextWapper = styled(FlexY).attrs({ as: 'div' })`
 `;
 
 const Image = styled(FlexX).attrs({ as: 'div' })<{ src: string }>`
+    position: relative;
     background-image: ${(props) => (props.src ? `url(${props.src})` : undefined)};
     background-repeat: no-repeat;
     width: 184px;
@@ -130,6 +134,7 @@ const NavBtn = styled.button`
     background-position: center;
     background-color: white;
     border: 0;
+    padding: 0;
 `;
 
 const PrevBtn = styled(NavBtn)`
@@ -140,4 +145,19 @@ const PrevBtn = styled(NavBtn)`
 const NextBtn = styled(NavBtn)`
     background-image: url(${IconSliderArrowNext});
     right: 0;
+`;
+
+const Badge = styled(FlexX).attrs({ as: 'em' })`
+    position: absolute;
+    left: -20px;
+    top: 6px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 10px;
+    border-radius: 16px;
+    color: ${Palette.White};
+    background-color: ${Palette.Red};
 `;
