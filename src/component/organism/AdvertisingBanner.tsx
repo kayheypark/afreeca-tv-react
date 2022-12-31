@@ -4,12 +4,22 @@ import ContentImg from 'asset/content/main_ad_1.png';
 import Icon from 'component/atom/Icon';
 import { IconCloseWhite } from 'lib/icon';
 import { Color } from 'style/variable/color';
+import { useRef } from 'react';
 
 const AdvertisingBanner = () => {
+    const itemRef = useRef<HTMLDivElement>(null);
+
+    const handleClickCloseBtn = (e: any): void => {
+        e.preventDefault();
+        if (itemRef.current) {
+            itemRef.current.style.display = 'none';
+        }
+    };
+
     return (
         <Wrapper>
-            <Item href="/" src={ContentImg}>
-                <CloseBtn>
+            <Item ref={itemRef} src={ContentImg}>
+                <CloseBtn onClick={(e) => handleClickCloseBtn(e)}>
                     <Icon src={IconCloseWhite}></Icon>
                     <span>닫기</span>
                 </CloseBtn>
@@ -22,7 +32,7 @@ export default AdvertisingBanner;
 
 const Wrapper = styled(FlexX).attrs({ as: 'section' })``;
 
-const Item = styled(Icon).attrs({ as: 'a' })<{ href: string }>`
+const Item = styled(Icon)`
     position: relative;
     width: 100%;
     height: 225px;
