@@ -56,8 +56,8 @@ const GlobalSearch = () => {
     }, [isActive]);
 
     return (
-        <Wrapper ref={wrapperRef} isActive={isActive} onClick={() => setIsActive(true)}>
-            <InputWrapper>
+        <Wrapper ref={wrapperRef} isActive={isActive}>
+            <InputWrapper onClick={() => setIsActive(true)}>
                 <input type="text" value={keyword} onChange={(e) => setKeyword(e.target.value)} />
                 <RemoveKeywordButton keyword={keyword} onClick={handleClickRemoveKeyword}>
                     검색어 지우기
