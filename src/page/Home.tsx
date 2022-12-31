@@ -1,9 +1,9 @@
-import MainBanner from 'component/organism/MainBanner';
+import TemplateHome from 'component/template/TemplateHome';
 import BaseLayout from 'layout/BaseLayout';
 
 const Home = () => (
     <BaseLayout>
-        <MainBanner />
+        <TemplateHome />
     </BaseLayout>
 );
 
