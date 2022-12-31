@@ -9,6 +9,7 @@ import { DummyLiveHotKeyword } from 'lib/dummy/GlobalSearch';
 import { ILiveHotKeyword } from 'lib/model/LiveHotKeyword';
 import LiveHotKeywordList from 'component/morecule/LiveHotKeywordList';
 import { icoSearch, IconCloseWhite } from 'lib/icon';
+import CurrentKeywordList from 'component/morecule/\bCurrentKeywordList';
 
 enum ContentModeType {
     CurrentKeyword = 1,
@@ -24,8 +25,6 @@ const GlobalSearch = () => {
     const [contentMode, setContentMode] = useState<ContentModeType>(ContentModeType.CurrentKeyword);
 
     const [currentKeyword, setCurrentKeyword] = useState<string[] | undefined>(undefined);
-    const [isAutoSaveCurrentKeyword, setIsAutoSaveCurrentKeyword] = useState<boolean>(false);
-
     const [liveHotKeyword, setLiveHotKeyword] = useState<ILiveHotKeyword[] | undefined>(DummyLiveHotKeyword);
 
     const handleClickRemoveKeyword = (): void => {
@@ -39,38 +38,7 @@ const GlobalSearch = () => {
     const renderContent = (contentMode: ContentModeType): JSX.Element => {
         switch (contentMode) {
             case ContentModeType.CurrentKeyword:
-                return (
-                    <>
-                        <div>
-                            {!currentKeyword ? (
-                                isAutoSaveCurrentKeyword ? (
-                                    <CurrentKeywordDisplay>최근 검색어가 없습니다.</CurrentKeywordDisplay>
-                                ) : (
-                                    <CurrentKeywordDisplay>
-                                        <em>최근 검색어 자동저장</em>이 꺼져있습니다.
-                                    </CurrentKeywordDisplay>
-                                )
-                            ) : (
-                                <ul>
-                                    {currentKeyword.map((item) => (
-                                        <li key={item}>{item}</li>
-                                    ))}
-                                </ul>
-                            )}
-                        </div>
-                        <AutoSaveCurrentKeywordWrap>
-                            <span>최근 검색어 자동 저장</span>
-                            <AutoSaveCurrentKeywordButton
-                                isOn={isAutoSaveCurrentKeyword}
-                                onClick={() => {
-                                    setIsAutoSaveCurrentKeyword((prev) => !prev);
-                                }}
-                            >
-                                {isAutoSaveCurrentKeyword ? 'ON' : 'OFF'}
-                            </AutoSaveCurrentKeywordButton>
-                        </AutoSaveCurrentKeywordWrap>
-                    </>
-                );
+                return <CurrentKeywordList items={currentKeyword} />;
             case ContentModeType.LiveHotKeyword:
                 return <LiveHotKeywordList items={liveHotKeyword} />;
             case ContentModeType.RecommandKeyword:
@@ -216,38 +184,3 @@ const ContentModeTabButton = styled(FlexX).attrs({ as: 'button' })`
 `;
 
 const ContentWrapper = FlexY;
-
-const CurrentKeywordDisplay = styled(FlexX).attrs({ as: 'p' })`
-    padding: 37px 0;
-    justify-content: center;
-    color: ${ColorUI.Text};
-    font-size: 14px;
-    em {
-        color: ${Color.Primary};
-    }
-`;
-
-const AutoSaveCurrentKeywordWrap = styled(FlexX)`
-    align-items: center;
-    column-gap: 7px;
-    background-color: ${ColorUI.AutoSaveCurrentKeywordWrapperBackground};
-    padding: 10px 12px;
-    margin-left: -12px;
-    margin-right: -12px;
-    margin-bottom: -12px;
-    span {
-        color: ${Color.Secondary};
-    }
-`;
-
-const AutoSaveCurrentKeywordButton = styled(FlexX).attrs({ as: 'button' })<{ isOn: boolean }>`
-    border: 0;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px;
-    border-radius: 15px;
-    height: 21px;
-    width: 40px;
-    background-color: ${(props) => (props.isOn ? Color.Primary : ColorUI.ButtonOff)};
-    color: ${Color.Empty};
-`;
