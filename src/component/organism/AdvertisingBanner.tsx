@@ -1,20 +1,19 @@
-import Button from 'component/atom/Button';
 import FlexX from 'component/atom/FlexX';
 import styled from 'styled-components';
 import ContentImg from 'asset/content/main_ad_1.png';
 import Icon from 'component/atom/Icon';
 import { IconCloseWhite } from 'lib/icon';
-import { Color, ColorUI } from 'style/variable/color';
+import { Color } from 'style/variable/color';
 
 const AdvertisingBanner = () => {
     return (
         <Wrapper>
-            <Background src={ContentImg}>
+            <Item href="/" src={ContentImg}>
                 <CloseBtn>
                     <Icon src={IconCloseWhite}></Icon>
                     <span>닫기</span>
                 </CloseBtn>
-            </Background>
+            </Item>
         </Wrapper>
     );
 };
@@ -23,7 +22,7 @@ export default AdvertisingBanner;
 
 const Wrapper = styled(FlexX).attrs({ as: 'section' })``;
 
-const Background = styled(Icon)`
+const Item = styled(Icon).attrs({ as: 'a' })<{ href: string }>`
     position: relative;
     width: 100%;
     height: 225px;
