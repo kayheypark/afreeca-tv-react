@@ -9,7 +9,7 @@ import { DummyLiveHotKeyword } from 'lib/dummy/GlobalSearch';
 import { ILiveHotKeyword } from 'lib/model/LiveHotKeyword';
 import LiveHotKeywordList from 'component/morecule/LiveHotKeywordList';
 import { icoSearch, IconCloseWhite } from 'lib/icon';
-import CurrentKeywordList from 'component/morecule/\bCurrentKeywordList';
+import CurrentKeywordList from 'component/morecule/CurrentKeywordList';
 
 enum ContentModeType {
     CurrentKeyword = 1,
