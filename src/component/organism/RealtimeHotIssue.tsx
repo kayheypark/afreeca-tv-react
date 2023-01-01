@@ -12,6 +12,9 @@ import Thumb1 from 'asset/content/realtime_hotissue_1.jpeg';
 import Badge from 'component/atom/Badge';
 import Button from 'component/atom/Button';
 import ProfileImageSample from 'asset/content/realtime_hotissue_thumb_1.jpeg';
+import FlexX from 'component/atom/FlexX';
+import { Color } from 'style/variable/color';
+import FlexY from 'component/atom/FlexY';
 
 const RealtimeHotIssue = () => {
     const prevRef = useRef<HTMLButtonElement>(null);
@@ -64,6 +67,21 @@ const RealtimeHotIssue = () => {
                                     <Icon src={IconClockRollback} />
                                     나중에보기
                                 </ViewLaterBtn>
+                                <StreamInformation>
+                                    <ProfileImg src={ProfileImageSample} />
+                                    <StreamTitle>
+                                        {'신입롤여캠 금이루 새해의 솔랭 ㅇ_< !! (맞즐 [괴인협회]'}
+                                    </StreamTitle>
+                                    <Details>
+                                        <Nickname>서금이</Nickname>
+                                        <span>∙</span>
+                                        <ViewCoount>
+                                            <Icon src={IconUsers}></Icon>
+                                            {'11'}
+                                        </ViewCoount>
+                                    </Details>
+                                    <TimeBadge>{'01-01 15:13 방송시작'}</TimeBadge>
+                                </StreamInformation>
                             </Anchor>
                         </SwiperSlide>
                     );
@@ -82,6 +100,18 @@ const Anchor = styled(Link)`
     padding-bottom: calc(100% * (9 / 16));
     border-radius: 12px;
     overflow: hidden;
+    &:hover .StreamTitle {
+        max-height: unset;
+    }
+    &::after {
+        position: absolute;
+        bottom: 0;
+        content: '';
+        display: block;
+        width: 100%;
+        height: 50%;
+        background-image: linear-gradient(to bottom, transparent 5%, rgba(0, 0, 0, 0.85));
+    }
 `;
 
 const Thumbnail = styled(Icon)`
@@ -144,4 +174,68 @@ const ViewLaterBtn = styled(Button)`
         height: 30px;
         background-size: 100%;
     }
+`;
+
+const StreamInformation = styled(FlexY)`
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    bottom: 10px;
+    color: ${Color.Empty};
+    z-index: 1;
+    margin-top: 11px;
+    .Details {
+        margin-left: 54px;
+        font-size: 13px;
+    }
+`;
+
+const ProfileImg = styled(Icon)`
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-size: cover;
+    border-radius: 100px;
+    width: 42px;
+    height: 42px;
+`;
+
+const StreamTitle = styled(FlexX).attrs({ as: 'h3', className: 'StreamTitle' })`
+    margin-left: 54px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    -webkit-line-clamp: 2;
+    max-height: 22px;
+    font-weight: 700;
+    line-height: 22px;
+    font-size: 16px;
+`;
+
+const Details = styled(FlexX).attrs({ className: 'Details' })`
+    align-items: center;
+    column-gap: 6px;
+    line-height: 1.2;
+    margin-top: 2px;
+`;
+
+const Nickname = styled(FlexX).attrs({ as: 'span' })``;
+
+const ViewCoount = styled(FlexX).attrs({ as: 'span' })`
+    align-items: center;
+    .Icon {
+        width: 12px;
+        height: 9px;
+    }
+`;
+
+const TimeBadge = styled(Badge)`
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translateY(calc(-100% - 6px));
+    background-color: rgba(0, 0, 0, 0.7);
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: -0.25px;
 `;
