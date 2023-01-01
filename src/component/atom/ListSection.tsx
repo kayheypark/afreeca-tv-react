@@ -5,6 +5,7 @@ const ListSection = styled(FlexY).attrs({ as: 'section' })`
     padding-top: 32px;
     padding-left: 46px;
     padding-right: 46px;
+    row-gap: 25px;
 `;
 
 export default ListSection;

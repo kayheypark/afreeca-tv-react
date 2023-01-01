@@ -12,6 +12,7 @@ import { IconSliderArrowNext, IconSliderArrowPrev } from 'lib/icon';
 import { DummyMainBanner } from 'lib/dummy/MainBanner';
 import { IMainBanner } from 'lib/model/MainBanner';
 import { BannerType } from 'lib/enum/MainBanner';
+import Badge from 'component/atom/Badge';
 
 const MainBanner = () => {
     const [items, setItems] = useState<IMainBanner[] | undefined>(DummyMainBanner);
@@ -27,7 +28,7 @@ const MainBanner = () => {
                     // Delay execution for the refs to be defined
                     setTimeout(() => {
                         // Override prevEl & nextEl now that refs are defined
-                        if (swiper.params.navigation) {
+                        if (swiper?.params?.navigation) {
                             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                             // @ts-ignore
                             // eslint-disable-next-line no-param-reassign
@@ -55,7 +56,7 @@ const MainBanner = () => {
                         <SwiperSlide key={item.id} tag="li">
                             <Anchor to={item.URL} target="_blank">
                                 <Image src={item.imageURL}>
-                                    {item.bannerType === BannerType.Live && <Badge>LIVE</Badge>}
+                                    {item.bannerType === BannerType.Live && <LiveBadge>LIVE</LiveBadge>}
                                 </Image>
                                 <TextWapper>
                                     <span>{item.periodText}</span>
@@ -132,9 +133,7 @@ const NavBtn = styled.button`
     background-size: 10px auto;
     background-repeat: no-repeat;
     background-position: center;
-    background-color: white;
-    border: 0;
-    padding: 0;
+    background-color: ${Palette.White};
 `;
 
 const PrevBtn = styled(NavBtn)`
@@ -147,17 +146,8 @@ const NextBtn = styled(NavBtn)`
     right: 0;
 `;
 
-const Badge = styled(FlexX).attrs({ as: 'em' })`
+const LiveBadge = styled(Badge)`
     position: absolute;
     left: -20px;
     top: 6px;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    align-items: center;
-    justify-content: center;
-    padding: 4px 10px;
-    border-radius: 16px;
-    color: ${Palette.White};
-    background-color: ${Palette.Red};
 `;

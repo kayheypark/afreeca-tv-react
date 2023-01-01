@@ -15,6 +15,8 @@ import Icon4Dot from 'asset/icon/ico_4dot.svg';
 import IconSliderArrowPrev from 'asset/icon/ico_slider_arrow_left.svg';
 import IconSliderArrowNext from 'asset/icon/ico_slider_arrow_right.svg';
 import IconCloseWhite from 'asset/icon/ico_close_white.svg';
+import IconClockRollback from 'asset/icon/ico_clock_rollback.svg';
+import IconUsers from 'asset/icon/ico_users.svg';
 
 export {
     IconHome,
@@ -34,4 +36,6 @@ export {
     IconSliderArrowPrev,
     IconSliderArrowNext,
     IconCloseWhite,
+    IconClockRollback,
+    IconUsers,
 };

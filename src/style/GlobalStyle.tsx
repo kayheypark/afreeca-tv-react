@@ -30,6 +30,8 @@ const GlobalStyle = createGlobalStyle`
     button {
         cursor: pointer;
         font-family: inherit;
+        padding: 0;
+        border: 0;
     }
 
     input:focus {
