@@ -15,6 +15,7 @@ import ProfileImageSample from 'asset/content/realtime_hotissue_thumb_1.jpeg';
 import FlexX from 'component/atom/FlexX';
 import { Color } from 'style/variable/color';
 import FlexY from 'component/atom/FlexY';
+import { Transition } from 'style/variable/transition';
 
 const RealtimeHotIssue = () => {
     const prevRef = useRef<HTMLButtonElement>(null);
@@ -100,8 +101,16 @@ const Anchor = styled(Link)`
     padding-bottom: calc(100% * (9 / 16));
     border-radius: 12px;
     overflow: hidden;
-    &:hover .StreamTitle {
-        max-height: unset;
+    transition: all ease 400ms 0;
+    &:hover {
+        .StreamTitle {
+            max-height: 44px;
+        }
+        .ExplorableBadge,
+        .ViewLaterBtn,
+        .TimeBadge {
+            opacity: 1;
+        }
     }
     &::after {
         position: absolute;
@@ -150,7 +159,7 @@ const NextBtn = styled(NavBtn)`
     right: 0;
 `;
 
-const ExplorableBadge = styled(Badge)`
+const ExplorableBadge = styled(Badge).attrs({ className: 'ExplorableBadge' })`
     position: absolute;
     top: 7px;
     left: 7px;
@@ -163,12 +172,17 @@ const ExplorableBadge = styled(Badge)`
     border: 1px solid #36caef;
     color: #36caef;
     font-weight: 400;
+
+    opacity: 0;
+    transition: ${Transition.StreamCard};
 `;
 
-const ViewLaterBtn = styled(Button)`
+const ViewLaterBtn = styled(Button).attrs({ className: 'ViewLaterBtn' })`
     position: absolute;
     top: 7px;
     right: 7px;
+    opacity: 0;
+    transition: ${Transition.StreamCard};
     .Icon {
         width: 30px;
         height: 30px;
@@ -210,6 +224,7 @@ const StreamTitle = styled(FlexX).attrs({ as: 'h3', className: 'StreamTitle' })`
     font-weight: 700;
     line-height: 22px;
     font-size: 16px;
+    transition: ${Transition.StreamCard};
 `;
 
 const Details = styled(FlexX).attrs({ className: 'Details' })`
@@ -229,7 +244,7 @@ const ViewCoount = styled(FlexX).attrs({ as: 'span' })`
     }
 `;
 
-const TimeBadge = styled(Badge)`
+const TimeBadge = styled(Badge).attrs({ className: 'TimeBadge' })`
     position: absolute;
     right: 0;
     top: 0;
@@ -238,4 +253,7 @@ const TimeBadge = styled(Badge)`
     font-size: 12px;
     font-weight: 400;
     letter-spacing: -0.25px;
+
+    opacity: 0;
+    transition: ${Transition.Default};
 `;
