@@ -101,7 +101,6 @@ const Anchor = styled(Link)`
     padding-bottom: calc(100% * (9 / 16));
     border-radius: 12px;
     overflow: hidden;
-    transition: all ease 400ms 0;
     &:hover {
         .StreamTitle {
             max-height: 44px;
