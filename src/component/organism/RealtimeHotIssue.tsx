@@ -214,6 +214,8 @@ const ProfileImg = styled(Icon)`
 `;
 
 const StreamTitle = styled(FlexX).attrs({ as: 'h3', className: 'StreamTitle' })`
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
     margin-left: 54px;
     overflow: hidden;
     text-overflow: ellipsis;
