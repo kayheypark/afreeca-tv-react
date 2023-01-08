@@ -4,7 +4,7 @@ import { IconClockRollback, IconSliderArrowBoldNext, IconSliderArrowBoldPrev, Ic
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { Navigation } from 'swiper';
+import SwiperCore, { Navigation, Autoplay } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -20,6 +20,7 @@ import { Transition } from 'style/variable/transition';
 const RealtimeHotIssue = () => {
     const prevRef = useRef<HTMLButtonElement>(null);
     const nextRef = useRef<HTMLButtonElement>(null);
+    SwiperCore.use([Autoplay]);
     return (
         <section>
             <Title>
@@ -56,6 +57,7 @@ const RealtimeHotIssue = () => {
                 spaceBetween={20}
                 slidesPerView={4}
                 loop={true}
+                autoplay={{ delay: 3000 }}
                 wrapperTag="ul"
             >
                 {[1, 2, 3, 4, 5].map((item, index) => {
