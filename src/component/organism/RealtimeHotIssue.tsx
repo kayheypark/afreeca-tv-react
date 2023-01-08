@@ -1,6 +1,6 @@
 import Icon from 'component/atom/Icon';
 import Title from 'component/atom/TItle';
-import { IconClockRollback, IconSliderArrowNext, IconSliderArrowPrev, IconUsers } from 'lib/icon';
+import { IconClockRollback, IconSliderArrowBoldNext, IconSliderArrowBoldPrev, IconUsers } from 'lib/icon';
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
@@ -13,7 +13,7 @@ import Badge from 'component/atom/Badge';
 import Button from 'component/atom/Button';
 import ProfileImageSample from 'asset/content/realtime_hotissue_thumb_1.jpeg';
 import FlexX from 'component/atom/FlexX';
-import { Color } from 'style/variable/color';
+import { Color, ColorUI } from 'style/variable/color';
 import FlexY from 'component/atom/FlexY';
 import { Transition } from 'style/variable/transition';
 
@@ -24,10 +24,10 @@ const RealtimeHotIssue = () => {
         <section>
             <Title>
                 실시간 핫이슈
-                {/* <div>
-                    <PrevBtn ref={prevRef}>이전 슬라이드</PrevBtn>
-                    <NextBtn ref={nextRef}>다음 슬라이드</NextBtn>
-                </div> */}
+                <SliderNavBtnWrap>
+                    <PrevBtn ref={prevRef}>이전 목록</PrevBtn>
+                    <NextBtn ref={nextRef}>다음 목록</NextBtn>
+                </SliderNavBtnWrap>
             </Title>
             <Swiper
                 modules={[Navigation]}
@@ -135,27 +135,25 @@ const NavBtn = styled.button`
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 10;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
     font-size: 0;
-    width: 42px;
-    height: calc(100% + 2.4px);
-    background-size: 10px auto;
+    width: 27px;
+    height: 27px;
+    border: 1px solid ${ColorUI.SliderNavigationBorderColor};
+    background-size: 7px 11px;
     background-repeat: no-repeat;
     background-position: center;
     background-color: white;
 `;
 
 const PrevBtn = styled(NavBtn)`
-    background-image: url(${IconSliderArrowPrev});
-    left: 0;
+    background-image: url(${IconSliderArrowBoldPrev});
+    border-radius: 3px 0 0 3px;
+    transform: translateX(1px);
 `;
 
 const NextBtn = styled(NavBtn)`
-    background-image: url(${IconSliderArrowNext});
-    right: 0;
+    background-image: url(${IconSliderArrowBoldNext});
+    border-radius: 0 3px 3px 0;
 `;
 
 const ExplorableBadge = styled(Badge).attrs({ className: 'ExplorableBadge' })`
@@ -257,4 +255,10 @@ const TimeBadge = styled(Badge).attrs({ className: 'TimeBadge' })`
 
     opacity: 0;
     transition: ${Transition.Default};
+`;
+
+const SliderNavBtnWrap = styled(FlexX)`
+    position: absolute;
+    top: 0;
+    right: 0;
 `;

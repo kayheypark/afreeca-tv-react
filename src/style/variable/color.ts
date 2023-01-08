@@ -13,6 +13,7 @@ export const Palette = {
     Gray_e5e5e5: '#e5e5e5',
     Gray_5f5f5f: '#5f5f5f',
     Gray_f0f0f0: '#f0f0f0',
+    Gray_e1e1e1: '#e1e1e1',
     White: '#ffffff',
 };
 
@@ -33,4 +34,5 @@ export const ColorUI = {
     SearchContentModeTabColor: Color.Secondary,
     AutoSaveCurrentKeywordWrapperBackground: Palette.Gray_f5f6f7,
     OtherServiceColor: Palette.Gray5,
+    SliderNavigationBorderColor: Palette.Gray_e1e1e1,
 };
