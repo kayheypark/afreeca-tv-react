@@ -4,19 +4,20 @@ import ContentImg from 'asset/content/main_ad_1.png';
 import Icon from 'component/atom/Icon';
 import { IconCloseWhite } from 'lib/icon';
 import { Color } from 'style/variable/color';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 
 const AdvertisingBanner = () => {
     const itemRef = useRef<HTMLDivElement>(null);
+    const [isActived, setIsActived] = useState<boolean>(true);
 
     const handleClickCloseBtn = (e: any): void => {
         e.preventDefault();
         if (itemRef.current) {
-            itemRef.current.style.display = 'none';
+            setIsActived(false);
         }
     };
 
-    return (
+    return isActived ? (
         <Wrapper>
             <Item ref={itemRef} src={ContentImg}>
                 <CloseBtn onClick={(e) => handleClickCloseBtn(e)}>
@@ -25,7 +26,7 @@ const AdvertisingBanner = () => {
                 </CloseBtn>
             </Item>
         </Wrapper>
-    );
+    ) : null;
 };
 
 export default AdvertisingBanner;
