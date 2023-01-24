@@ -1,0 +1,178 @@
+import FlexX from 'component/atom/FlexX';
+import Icon from 'component/atom/Icon';
+import { Link } from 'react-router-dom';
+import { Color } from 'style/variable/color';
+import styled from 'styled-components';
+import { IconClockRollback, IconUsers } from 'lib/icon';
+import Thumb1 from 'asset/content/realtime_hotissue_1.jpeg';
+import ProfileImageSample from 'asset/content/realtime_hotissue_thumb_1.jpeg';
+import Badge from 'component/atom/Badge';
+import { Transition } from 'style/variable/transition';
+import Button from 'component/atom/Button';
+import FlexY from 'component/atom/FlexY';
+
+const StreamCard = () => {
+    return (
+        <Anchor to={'/'} target="_blank">
+            <Thumbnail src={Thumb1} />
+            <ExplorableBadge>탐방허용</ExplorableBadge>
+            <ViewLaterBtn>
+                <Icon src={IconClockRollback} />
+                나중에보기
+            </ViewLaterBtn>
+            <StreamInformation>
+                <ProfileImg src={ProfileImageSample} />
+                <StreamTitle>{'신입롤여캠 금이루 새해의 솔랭 ㅇ_< !! (맞즐 [괴인협회]'}</StreamTitle>
+                <Details>
+                    <Nickname>서금이</Nickname>
+                    <span>∙</span>
+                    <ViewCoount>
+                        <Icon src={IconUsers}></Icon>
+                        {'11'}
+                    </ViewCoount>
+                </Details>
+                <TimeBadge>{'01-01 15:13 방송시작'}</TimeBadge>
+            </StreamInformation>
+        </Anchor>
+    );
+};
+
+export default StreamCard;
+
+const Anchor = styled(Link)`
+    position: relative;
+    display: block;
+    width: 100%;
+    padding-bottom: calc(100% * (9 / 16));
+    border-radius: 12px;
+    overflow: hidden;
+    &:hover {
+        .StreamTitle {
+            max-height: 44px;
+        }
+        .ExplorableBadge,
+        .ViewLaterBtn,
+        .TimeBadge {
+            opacity: 1;
+        }
+    }
+    &::after {
+        position: absolute;
+        bottom: 0;
+        content: '';
+        display: block;
+        width: 100%;
+        height: 50%;
+        background-image: linear-gradient(to bottom, transparent 5%, rgba(0, 0, 0, 0.85));
+    }
+`;
+
+const Thumbnail = styled(Icon)`
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background-size: cover;
+    padding-bottom: calc(100% * (9 / 16));
+`;
+
+const ExplorableBadge = styled(Badge).attrs({ className: 'ExplorableBadge' })`
+    position: absolute;
+    top: 7px;
+    left: 7px;
+    font-size: 12px;
+    content: '';
+    display: flex;
+    border: 1px solid red;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.6);
+    border: 1px solid #36caef;
+    color: #36caef;
+    font-weight: 400;
+
+    opacity: 0;
+    transition: ${Transition.StreamCard};
+`;
+
+const ViewLaterBtn = styled(Button).attrs({ className: 'ViewLaterBtn' })`
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    opacity: 0;
+    transition: ${Transition.StreamCard};
+    .Icon {
+        width: 30px;
+        height: 30px;
+        background-size: 100%;
+    }
+`;
+
+const StreamInformation = styled(FlexY)`
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    bottom: 10px;
+    color: ${Color.Empty};
+    z-index: 1;
+    margin-top: 11px;
+    .Details {
+        margin-left: 54px;
+        font-size: 13px;
+    }
+`;
+
+const ProfileImg = styled(Icon)`
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-size: cover;
+    border-radius: 100px;
+    width: 42px;
+    height: 42px;
+`;
+
+const StreamTitle = styled(FlexX).attrs({ as: 'h3', className: 'StreamTitle' })`
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    margin-left: 54px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    -webkit-line-clamp: 2;
+    max-height: 22px;
+    font-weight: 700;
+    line-height: 22px;
+    font-size: 16px;
+    transition: ${Transition.StreamCard};
+`;
+
+const Details = styled(FlexX).attrs({ className: 'Details' })`
+    align-items: center;
+    column-gap: 6px;
+    line-height: 1.2;
+    margin-top: 2px;
+`;
+
+const Nickname = styled(FlexX).attrs({ as: 'span' })``;
+
+const ViewCoount = styled(FlexX).attrs({ as: 'span' })`
+    align-items: center;
+    .Icon {
+        width: 12px;
+        height: 9px;
+    }
+`;
+
+const TimeBadge = styled(Badge).attrs({ className: 'TimeBadge' })`
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translateY(calc(-100% - 6px));
+    background-color: rgba(0, 0, 0, 0.7);
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: -0.25px;
+
+    opacity: 0;
+    transition: ${Transition.Default};
+`;
