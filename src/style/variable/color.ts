@@ -36,4 +36,5 @@ export const ColorUI = {
     AutoSaveCurrentKeywordWrapperBackground: Palette.Gray_f5f6f7,
     OtherServiceColor: Palette.Gray5,
     SliderNavigationBorderColor: Palette.Gray_e1e1e1,
+    TopButtonBackGroundColor: Palette.Gray_f5f6f7,
 };

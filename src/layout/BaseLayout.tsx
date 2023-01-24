@@ -4,7 +4,6 @@ import styled, { css } from 'styled-components';
 import GlobalSearch from 'component/organism/GlobalSearch';
 import AfreecaTVLogo from 'asset/logo.svg';
 import { Color, ColorUI, Palette } from 'style/variable/color';
-
 import Button from 'component/atom/Button';
 import PopoverTip from 'asset/icon/ico_popovertip.svg';
 import { Transition } from 'style/variable/transition';
@@ -12,6 +11,7 @@ import { IconBroadcast, IconBell, Icon3Dot, Icon4Dot } from 'lib/icon';
 import { Length } from 'style/variable/spacing';
 import { ZIndex } from 'style/variable/zIndex';
 import GNB from 'component/organism/GNB';
+import TopButton from 'component/morecule/TopButton';
 
 interface IProps {
     children: JSX.Element;
@@ -46,6 +46,7 @@ const BaseLayout = ({ children }: IProps) => (
             <GNB />
             <Main>{children}</Main>
         </Content>
+        <TopButton />
         <Footer>
             <FooterSection>
                 <FooterMenus>
