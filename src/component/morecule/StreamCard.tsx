@@ -1,9 +1,9 @@
 import FlexX from 'component/atom/FlexX';
 import Icon from 'component/atom/Icon';
 import { Link } from 'react-router-dom';
-import { Color } from 'style/variable/color';
+import { Color, ColorUI } from 'style/variable/color';
 import styled from 'styled-components';
-import { IconClockRollback, IconUsers } from 'lib/icon';
+import { IconClockRollback, IconUsers, IconUsersGray } from 'lib/icon';
 import Thumb1 from 'asset/content/realtime_hotissue_1.jpeg';
 import ProfileImageSample from 'asset/content/realtime_hotissue_thumb_1.jpeg';
 import Badge from 'component/atom/Badge';
@@ -42,18 +42,18 @@ const StreamCard = ({ isStatic = false }: IProps) => {
                 </StreamInformation>
             </Anchor>
             {isStatic && (
-                <div>
+                <StreamInformationForStatic>
                     <ProfileImg src={ProfileImageSample} />
                     <StreamTitle>{'신입롤여캠 금이루 새해의 솔랭 ㅇ_< !! (맞즐 [괴인협회]'}</StreamTitle>
                     <Details>
                         <Nickname>서금이</Nickname>
                         <span>∙</span>
                         <ViewCoount>
-                            <Icon src={IconUsers}></Icon>
+                            <Icon src={IconUsersGray}></Icon>
                             {'11'}
                         </ViewCoount>
                     </Details>
-                </div>
+                </StreamInformationForStatic>
             )}
         </div>
     );
@@ -175,9 +175,15 @@ const Details = styled(FlexX).attrs({ className: 'Details' })`
     margin-top: 2px;
 `;
 
-const Nickname = styled(FlexX).attrs({ as: 'span' })``;
+const Nickname = styled(FlexX).attrs({ as: 'button', className: 'NickName' })`
+    background-color: transparent;
+    color: ${Color.Empty};
+    &:hover {
+        text-decoration: underline;
+    }
+`;
 
-const ViewCoount = styled(FlexX).attrs({ as: 'span' })`
+const ViewCoount = styled(FlexX).attrs({ as: 'span', className: 'ViewCount' })`
     align-items: center;
     .Icon {
         width: 12px;
@@ -197,4 +203,20 @@ const TimeBadge = styled(Badge).attrs({ className: 'TimeBadge' })`
 
     opacity: 0;
     transition: ${Transition.Default};
+`;
+
+const StreamInformationForStatic = styled(FlexY)`
+    position: relative;
+    margin-top: 11px;
+    min-height: 107px;
+    .Details,
+    .StreamTitle {
+        margin-left: 50px;
+    }
+    .NickName {
+        color: ${Color.Primary};
+    }
+    .ViewCount {
+        color: ${Color.Secondary};
+    }
 `;

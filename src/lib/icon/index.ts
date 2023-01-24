@@ -17,6 +17,7 @@ import IconSliderArrowNext from 'asset/icon/ico_slider_arrow_right.svg';
 import IconCloseWhite from 'asset/icon/ico_close_white.svg';
 import IconClockRollback from 'asset/icon/ico_clock_rollback.svg';
 import IconUsers from 'asset/icon/ico_users.svg';
+import IconUsersGray from 'asset/icon/ico_users_gray.svg';
 import IconSliderArrowBoldPrev from 'asset/icon/ico_slider_arrow_left_bold.svg';
 import IconSliderArrowBoldNext from 'asset/icon/ico_slider_arrow_right_bold.svg';
 
@@ -40,6 +41,7 @@ export {
     IconCloseWhite,
     IconClockRollback,
     IconUsers,
+    IconUsersGray,
     IconSliderArrowBoldPrev,
     IconSliderArrowBoldNext,
 };
