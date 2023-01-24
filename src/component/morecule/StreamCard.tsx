@@ -12,7 +12,7 @@ import Button from 'component/atom/Button';
 import FlexY from 'component/atom/FlexY';
 
 interface IProps {
-    isStatic: boolean;
+    isStatic?: boolean;
 }
 
 const StreamCard = ({ isStatic = false }: IProps) => {
