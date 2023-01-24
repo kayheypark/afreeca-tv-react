@@ -1,4 +1,5 @@
 import FlexX from 'component/atom/FlexX';
+import InfoText from 'component/atom/InfoText';
 import { useState } from 'react';
 import { Color, ColorUI } from 'style/variable/color';
 import styled from 'styled-components';
@@ -14,11 +15,11 @@ const CurrentKeywordList = ({ items }: IProps) => {
             <div>
                 {!items ? (
                     isAutoSaveCurrentKeyword ? (
-                        <CurrentKeywordDisplay>최근 검색어가 없습니다.</CurrentKeywordDisplay>
+                        <InfoText>최근 검색어가 없습니다.</InfoText>
                     ) : (
-                        <CurrentKeywordDisplay>
+                        <InfoText>
                             <em>최근 검색어 자동저장</em>이 꺼져있습니다.
-                        </CurrentKeywordDisplay>
+                        </InfoText>
                     )
                 ) : (
                     <ul>
@@ -44,16 +45,6 @@ const CurrentKeywordList = ({ items }: IProps) => {
 };
 
 export default CurrentKeywordList;
-
-const CurrentKeywordDisplay = styled(FlexX).attrs({ as: 'p' })`
-    padding: 37px 0;
-    justify-content: center;
-    color: ${ColorUI.Text};
-    font-size: 14px;
-    em {
-        color: ${Color.Primary};
-    }
-`;
 
 const AutoSaveCurrentKeywordWrap = styled(FlexX)`
     align-items: center;

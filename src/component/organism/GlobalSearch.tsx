@@ -10,6 +10,7 @@ import { ILiveHotKeyword } from 'lib/model/LiveHotKeyword';
 import LiveHotKeywordList from 'component/morecule/LiveHotKeywordList';
 import { icoSearch, IconCloseWhite } from 'lib/icon';
 import CurrentKeywordList from 'component/morecule/CurrentKeywordList';
+import RecommandKeywordList from 'component/morecule/RecommandKeywordList';
 
 enum ContentModeType {
     CurrentKeyword = 1,
@@ -42,7 +43,7 @@ const GlobalSearch = () => {
             case ContentModeType.LiveHotKeyword:
                 return <LiveHotKeywordList items={liveHotKeyword} />;
             case ContentModeType.RecommandKeyword:
-                return <h1>Recommand</h1>;
+                return <RecommandKeywordList items={currentKeyword} />;
         }
     };
 
