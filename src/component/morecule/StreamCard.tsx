@@ -1,7 +1,7 @@
 import FlexX from 'component/atom/FlexX';
 import Icon from 'component/atom/Icon';
 import { Link } from 'react-router-dom';
-import { Color, ColorUI } from 'style/variable/color';
+import { Color, ColorUI, Palette } from 'style/variable/color';
 import styled from 'styled-components';
 import { IconClockRollback, IconUsers, IconUsersGray } from 'lib/icon';
 import Thumb1 from 'asset/content/realtime_hotissue_1.jpeg';
@@ -143,7 +143,7 @@ const StreamInformation = styled(FlexY)`
     }
 `;
 
-const ProfileImg = styled(Icon)`
+const ProfileImg = styled(Icon).attrs({ as: 'a', href: '#' })`
     position: absolute;
     top: 0;
     left: 0;
@@ -153,7 +153,7 @@ const ProfileImg = styled(Icon)`
     height: 42px;
 `;
 
-const StreamTitle = styled(FlexX).attrs({ as: 'h3', className: 'StreamTitle' })`
+const StreamTitle = styled(FlexX).attrs({ as: 'a', className: 'StreamTitle', href: '#' })`
     display: -webkit-box;
     -webkit-box-orient: vertical;
     margin-left: 54px;
@@ -166,6 +166,7 @@ const StreamTitle = styled(FlexX).attrs({ as: 'h3', className: 'StreamTitle' })`
     line-height: 22px;
     font-size: 16px;
     transition: ${Transition.StreamCard};
+    color: ${Color.Empty};
 `;
 
 const Details = styled(FlexX).attrs({ className: 'Details' })`
@@ -209,14 +210,21 @@ const StreamInformationForStatic = styled(FlexY)`
     position: relative;
     margin-top: 11px;
     min-height: 107px;
-    .Details,
     .StreamTitle {
         margin-left: 50px;
+        max-height: unset;
+        font-weight: 400;
+        color: ${Palette.Gray1};
+    }
+    .Details {
+        margin-left: 50px;
+        margin-top: 6px;
     }
     .NickName {
         color: ${Color.Primary};
     }
-    .ViewCount {
+    .ViewCount,
+    span {
         color: ${Color.Secondary};
     }
 `;
