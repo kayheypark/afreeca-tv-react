@@ -11,29 +11,51 @@ import { Transition } from 'style/variable/transition';
 import Button from 'component/atom/Button';
 import FlexY from 'component/atom/FlexY';
 
-const StreamCard = () => {
+interface IProps {
+    isStatic: boolean;
+}
+
+const StreamCard = ({ isStatic = false }: IProps) => {
     return (
-        <Anchor to={'/'} target="_blank">
-            <Thumbnail src={Thumb1} />
-            <ExplorableBadge>탐방허용</ExplorableBadge>
-            <ViewLaterBtn>
-                <Icon src={IconClockRollback} />
-                나중에보기
-            </ViewLaterBtn>
-            <StreamInformation>
-                <ProfileImg src={ProfileImageSample} />
-                <StreamTitle>{'신입롤여캠 금이루 새해의 솔랭 ㅇ_< !! (맞즐 [괴인협회]'}</StreamTitle>
-                <Details>
-                    <Nickname>서금이</Nickname>
-                    <span>∙</span>
-                    <ViewCoount>
-                        <Icon src={IconUsers}></Icon>
-                        {'11'}
-                    </ViewCoount>
-                </Details>
-                <TimeBadge>{'01-01 15:13 방송시작'}</TimeBadge>
-            </StreamInformation>
-        </Anchor>
+        <div>
+            <Anchor to={'/'} target="_blank">
+                <Thumbnail src={Thumb1} />
+                <ExplorableBadge>탐방허용</ExplorableBadge>
+                <ViewLaterBtn>
+                    <Icon src={IconClockRollback} />
+                    나중에보기
+                </ViewLaterBtn>
+                <StreamInformation>
+                    {!isStatic && <ProfileImg src={ProfileImageSample} />}
+                    {!isStatic && <StreamTitle>{'신입롤여캠 금이루 새해의 솔랭 ㅇ_< !! (맞즐 [괴인협회]'}</StreamTitle>}
+                    {!isStatic && (
+                        <Details>
+                            <Nickname>서금이</Nickname>
+                            <span>∙</span>
+                            <ViewCoount>
+                                <Icon src={IconUsers}></Icon>
+                                {'11'}
+                            </ViewCoount>
+                        </Details>
+                    )}
+                    <TimeBadge>{'01-01 15:13 방송시작'}</TimeBadge>
+                </StreamInformation>
+            </Anchor>
+            {isStatic && (
+                <div>
+                    <ProfileImg src={ProfileImageSample} />
+                    <StreamTitle>{'신입롤여캠 금이루 새해의 솔랭 ㅇ_< !! (맞즐 [괴인협회]'}</StreamTitle>
+                    <Details>
+                        <Nickname>서금이</Nickname>
+                        <span>∙</span>
+                        <ViewCoount>
+                            <Icon src={IconUsers}></Icon>
+                            {'11'}
+                        </ViewCoount>
+                    </Details>
+                </div>
+            )}
+        </div>
     );
 };
 
