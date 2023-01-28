@@ -10,12 +10,14 @@ import Badge from 'component/atom/Badge';
 import { Transition } from 'style/variable/transition';
 import Button from 'component/atom/Button';
 import FlexY from 'component/atom/FlexY';
+import { IStreamCard } from 'lib/model/StreamCard';
 
 interface IProps {
     isStatic?: boolean;
+    streamCard: IStreamCard;
 }
 
-const StreamCard = ({ isStatic = false }: IProps) => {
+const StreamCard = ({ isStatic = false, streamCard }: IProps) => {
     return (
         <div>
             <Anchor to={'/'} target="_blank">
