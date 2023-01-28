@@ -1,19 +1,36 @@
 import Button from 'component/atom/Button';
 import { IconTop } from 'lib/icon';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ColorUI } from 'style/variable/color';
 import { ZIndex } from 'style/variable/zIndex';
 import styled from 'styled-components';
 
 const TopButton = () => {
     const [isShowTopBtn, setIsShowTopBtn] = useState<boolean>(true);
+
     const handleClickTopBtn = () => {
         window.scrollTo({
             top: 0,
             behavior: 'smooth',
         });
     };
-    return isShowTopBtn && <TopBtn onClick={handleClickTopBtn} />;
+
+    useEffect(() => {
+        const handleIsShowTopBtn = () => {
+            if (window.scrollY > 200) {
+                setIsShowTopBtn(true);
+            } else {
+                setIsShowTopBtn(false);
+            }
+        };
+
+        window.addEventListener('scroll', handleIsShowTopBtn);
+        return () => {
+            window.removeEventListener('scroll', handleIsShowTopBtn);
+        };
+    }, []);
+
+    return isShowTopBtn && <TopBtn onClick={handleClickTopBtn}>상단 바로가기</TopBtn>;
 };
 
 const TopBtn = styled(Button).attrs({ type: 'button' })`
