@@ -1,11 +1,9 @@
 import FlexX from 'component/atom/FlexX';
 import Icon from 'component/atom/Icon';
 import { Link } from 'react-router-dom';
-import { Color, ColorUI, Palette } from 'style/variable/color';
+import { Color, Palette } from 'style/variable/color';
 import styled from 'styled-components';
 import { IconClockRollback, IconUsers, IconUsersGray } from 'lib/icon';
-import Thumb1 from 'asset/content/realtime_hotissue_1.jpeg';
-import ProfileImageSample from 'asset/content/realtime_hotissue_thumb_1.jpeg';
 import Badge from 'component/atom/Badge';
 import { Transition } from 'style/variable/transition';
 import Button from 'component/atom/Button';
@@ -21,22 +19,22 @@ const StreamCard = ({ isStatic = false, streamCard }: IProps) => {
     return (
         <div>
             <Anchor to={'/'} target="_blank">
-                <Thumbnail src={Thumb1} />
-                <ExplorableBadge>탐방허용</ExplorableBadge>
+                <Thumbnail src={streamCard?.thumbnailUrl} />
+                {streamCard?.isAllowToExplore && <ExplorableBadge>탐방허용</ExplorableBadge>}
                 <ViewLaterBtn>
                     <Icon src={IconClockRollback} />
                     나중에보기
                 </ViewLaterBtn>
                 <StreamInformation>
-                    {!isStatic && <ProfileImg src={ProfileImageSample} />}
-                    {!isStatic && <StreamTitle>{'신입롤여캠 금이루 새해의 솔랭 ㅇ_< !! (맞즐 [괴인협회]'}</StreamTitle>}
+                    {!isStatic && <ProfileImg src={streamCard?.profileImageUrl} />}
+                    {!isStatic && <StreamTitle>{streamCard?.title}</StreamTitle>}
                     {!isStatic && (
                         <Details>
-                            <Nickname>서금이</Nickname>
+                            <Nickname>{streamCard?.nickName}</Nickname>
                             <span>∙</span>
                             <ViewCoount>
                                 <Icon src={IconUsers}></Icon>
-                                {'11'}
+                                {streamCard?.viewCount}
                             </ViewCoount>
                         </Details>
                     )}
@@ -45,14 +43,14 @@ const StreamCard = ({ isStatic = false, streamCard }: IProps) => {
             </Anchor>
             {isStatic && (
                 <StreamInformationForStatic>
-                    <ProfileImg src={ProfileImageSample} />
-                    <StreamTitle>{'신입롤여캠 금이루 새해의 솔랭 ㅇ_< !! (맞즐 [괴인협회]'}</StreamTitle>
+                    <ProfileImg src={streamCard?.profileImageUrl} />
+                    <StreamTitle>{streamCard?.title}</StreamTitle>
                     <Details>
-                        <Nickname>서금이</Nickname>
+                        <Nickname>{streamCard?.nickName}</Nickname>
                         <span>∙</span>
                         <ViewCoount>
                             <Icon src={IconUsersGray}></Icon>
-                            {'11'}
+                            {streamCard?.viewCount}
                         </ViewCoount>
                     </Details>
                 </StreamInformationForStatic>

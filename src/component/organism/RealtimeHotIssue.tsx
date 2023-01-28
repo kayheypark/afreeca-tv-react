@@ -1,22 +1,16 @@
-import Icon from 'component/atom/Icon';
 import Title from 'component/atom/TItle';
-import { IconClockRollback, IconSliderArrowBoldNext, IconSliderArrowBoldPrev, IconUsers } from 'lib/icon';
+import { IconSliderArrowBoldNext, IconSliderArrowBoldPrev } from 'lib/icon';
 import { useRef } from 'react';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import SwiperCore, { Navigation, Autoplay } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import Thumb1 from 'asset/content/realtime_hotissue_1.jpeg';
-import Badge from 'component/atom/Badge';
-import Button from 'component/atom/Button';
-import ProfileImageSample from 'asset/content/realtime_hotissue_thumb_1.jpeg';
 import FlexX from 'component/atom/FlexX';
-import { Color, ColorUI } from 'style/variable/color';
-import FlexY from 'component/atom/FlexY';
+import { ColorUI } from 'style/variable/color';
 import { Transition } from 'style/variable/transition';
 import StreamCard from 'component/morecule/StreamCard';
+import { DummyStreamCard } from 'lib/dummy/StreamCard';
 
 const RealtimeHotIssue = () => {
     const prevRef = useRef<HTMLButtonElement>(null);
@@ -61,10 +55,10 @@ const RealtimeHotIssue = () => {
                 autoplay={{ delay: 3000 }}
                 wrapperTag="ul"
             >
-                {[1, 2, 3, 4, 5].map((item, index) => {
+                {DummyStreamCard.map((item) => {
                     return (
-                        <SwiperSlide key={index} tag="li">
-                            <StreamCard />
+                        <SwiperSlide key={item?.id} tag="li">
+                            <StreamCard streamCard={item} />
                         </SwiperSlide>
                     );
                 })}
