@@ -8,6 +8,7 @@ export const Palette = {
     Gray: '#e5ebf2',
     Gray9: '#999999',
     Gray8: '#888888',
+    Gray7: '#777777',
     Gray5: '#555555',
     Gray3: '#333333',
     Gray2: '#222222',

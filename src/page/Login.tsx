@@ -1,7 +1,9 @@
 import AfreecaTVLogo from 'asset/logo.svg';
+import Checkbox from 'component/atom/Checkbox';
 import FlexX from 'component/atom/FlexX';
 import FlexY from 'component/atom/FlexY';
 import Input from 'component/atom/Input';
+import { IconQuestionMark } from 'lib/icon';
 import { useState } from 'react';
 import { Color, Palette } from 'style/variable/color';
 import styled from 'styled-components';
@@ -33,30 +35,29 @@ const Login = () => {
                 <a href="/">afreeca tv</a>
             </Logo>
             <Display>로그인 후 이용하실 수 있습니다.</Display>
-            <FlexY style={{ rowGap: '10px', width: '100%' }}>
+            <Major>
                 <Input type="text" defaultValue={id} placeholder="아이디" onChange={(e) => setId(e?.target?.value)} />
                 <Input type="password" placeholder="비밀번호" onChange={(e) => setPassword(e?.target?.value)} />
                 <LoginButton onClick={handleSubmit}>로그인</LoginButton>
-            </FlexY>
-            <div>
-                <input
-                    type="checkbox"
-                    id="maintainLogin"
-                    defaultChecked={isCheckedMaintainLogin}
-                    onClick={() => handleClickCheckbox(setIsCheckedMaintainLogin)}
-                />
-                <label htmlFor="maintainLogin">로그인 상태 유지</label>
-            </div>
-            <div>
-                <input
-                    type="checkbox"
-                    id="saveId"
-                    defaultChecked={isCheckedSaveId}
-                    onClick={() => handleClickCheckbox(setIsCheckedSaveId)}
-                />
-                <label htmlFor="saveId">아이디 저장</label>
-            </div>
-            <a href="#">도움말</a>
+            </Major>
+            <Minor>
+                <FlexX style={{ columnGap: '10px' }}>
+                    <Checkbox
+                        id="maintainLogin"
+                        defaultChecked={isCheckedMaintainLogin}
+                        onClick={() => handleClickCheckbox(setIsCheckedMaintainLogin)}
+                        label="로그인 상태 유지"
+                    />
+                    <Checkbox
+                        id="saveId"
+                        defaultChecked={isCheckedSaveId}
+                        onClick={() => handleClickCheckbox(setIsCheckedSaveId)}
+                        label="아이디 저장"
+                    />
+                </FlexX>
+                <HelpLink href="#">도움말</HelpLink>
+            </Minor>
+
             <ul>
                 <li>
                     <a href="">아이디 찾기</a>
@@ -110,4 +111,31 @@ const LoginButton = styled.button`
     font-weight: 400;
     margin-top: 10px;
     border-radius: 3px;
+`;
+
+const Major = styled(FlexY)`
+    row-gap: 10px;
+    width: 100%;
+`;
+
+const Minor = styled(FlexX)`
+    width: 100%;
+    margin-top: 10px;
+    justify-content: space-between;
+`;
+
+const HelpLink = styled(FlexX).attrs({ as: 'a' })`
+    font-size: 12px;
+    color: ${Palette.Gray7};
+    align-items: center;
+    column-gap: 5px;
+    &:after {
+        content: '';
+        display: block;
+        width: 14px;
+        height: 14px;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-image: url(${IconQuestionMark});
+    }
 `;

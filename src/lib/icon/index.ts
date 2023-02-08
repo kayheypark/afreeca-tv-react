@@ -21,6 +21,7 @@ import IconUsersGray from 'asset/icon/ico_users_gray.svg';
 import IconSliderArrowBoldPrev from 'asset/icon/ico_slider_arrow_left_bold.svg';
 import IconSliderArrowBoldNext from 'asset/icon/ico_slider_arrow_right_bold.svg';
 import IconTop from 'asset/icon/ico_top.svg';
+import IconQuestionMark from 'asset/icon/ico_questionmark.svg';
 
 export {
     IconHome,
@@ -46,4 +47,5 @@ export {
     IconSliderArrowBoldPrev,
     IconSliderArrowBoldNext,
     IconTop,
+    IconQuestionMark,
 };
