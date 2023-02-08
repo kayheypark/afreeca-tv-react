@@ -1,6 +1,9 @@
 export const Palette = {
     Blue: '#4279ff',
     BlueOC: '#f2f8ff',
+    BlueDeep: '#1559ff',
+    Blue_e8f0fe: '#e8f0fe',
+    Blue_2e6afd: '#2e6afd',
     Red: '#ff3636',
     Gray: '#e5ebf2',
     Gray9: '#999999',
@@ -15,6 +18,7 @@ export const Palette = {
     Gray_5f5f5f: '#5f5f5f',
     Gray_f0f0f0: '#f0f0f0',
     Gray_e1e1e1: '#e1e1e1',
+    Gray_bbbbbb: '#bbbbbb',
     White: '#ffffff',
 };
 

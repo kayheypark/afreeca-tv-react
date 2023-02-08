@@ -1,6 +1,9 @@
 import AfreecaTVLogo from 'asset/logo.svg';
 import FlexX from 'component/atom/FlexX';
+import FlexY from 'component/atom/FlexY';
+import Input from 'component/atom/Input';
 import { useState } from 'react';
+import { Color, Palette } from 'style/variable/color';
 import styled from 'styled-components';
 
 const Login = () => {
@@ -25,13 +28,16 @@ const Login = () => {
     };
 
     return (
-        <div>
+        <Wrapper>
             <Logo>
                 <a href="/">afreeca tv</a>
             </Logo>
-            <p>로그인 후 이용하실 수 있습니다.</p>
-            <input type="text" defaultValue={id} onChange={(e) => setId(e?.target?.value)} />
-            <input type="password" defaultValue={password} onChange={(e) => setPassword(e?.target?.value)} />
+            <Display>로그인 후 이용하실 수 있습니다.</Display>
+            <FlexY style={{ rowGap: '10px', width: '100%' }}>
+                <Input type="text" defaultValue={id} placeholder="아이디" onChange={(e) => setId(e?.target?.value)} />
+                <Input type="password" placeholder="비밀번호" onChange={(e) => setPassword(e?.target?.value)} />
+                <LoginButton onClick={handleSubmit}>로그인</LoginButton>
+            </FlexY>
             <div>
                 <input
                     type="checkbox"
@@ -51,9 +57,6 @@ const Login = () => {
                 <label htmlFor="saveId">아이디 저장</label>
             </div>
             <a href="#">도움말</a>
-            <button type="button" onClick={handleSubmit}>
-                로그인
-            </button>
             <ul>
                 <li>
                     <a href="">아이디 찾기</a>
@@ -65,7 +68,7 @@ const Login = () => {
                     <a href="">회원가입</a>
                 </li>
             </ul>
-        </div>
+        </Wrapper>
     );
 };
 
@@ -77,9 +80,34 @@ const Logo = styled(FlexX).attrs({ as: 'h1' })`
         background-repeat: no-repeat;
         background-position: center center;
         background-size: contain;
-        width: 157px;
-        height: 50px;
+        width: 266px;
+        height: 45px;
         color: transparent;
         font-size: 0;
     }
+`;
+
+const Wrapper = styled(FlexY)`
+    width: 340px;
+    margin: 0 auto;
+    padding-top: 125px;
+    align-items: center;
+`;
+
+const Display = styled.p`
+    padding: 27px 0;
+    font-size: 18px;
+    color: ${Palette.BlueDeep};
+    letter-spacing: -1px;
+`;
+
+const LoginButton = styled.button`
+    color: ${Color.Empty};
+    background-color: ${Palette.Blue_2e6afd};
+    height: 50px;
+    width: 100%;
+    font-size: 18px;
+    font-weight: 400;
+    margin-top: 10px;
+    border-radius: 3px;
 `;
