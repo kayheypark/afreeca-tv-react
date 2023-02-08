@@ -20,6 +20,7 @@ export const Palette = {
     Gray_f0f0f0: '#f0f0f0',
     Gray_e1e1e1: '#e1e1e1',
     Gray_bbbbbb: '#bbbbbb',
+    Gray_dddddd: '#dddddd',
     White: '#ffffff',
 };
 

@@ -55,10 +55,9 @@ const Login = () => {
                         label="아이디 저장"
                     />
                 </FlexX>
-                <HelpLink href="#">도움말</HelpLink>
+                <HelpLink>도움말</HelpLink>
             </Minor>
-
-            <ul>
+            <RelativedActivities>
                 <li>
                     <a href="">아이디 찾기</a>
                 </li>
@@ -68,7 +67,7 @@ const Login = () => {
                 <li>
                     <a href="">회원가입</a>
                 </li>
-            </ul>
+            </RelativedActivities>
         </Wrapper>
     );
 };
@@ -124,7 +123,7 @@ const Minor = styled(FlexX)`
     justify-content: space-between;
 `;
 
-const HelpLink = styled(FlexX).attrs({ as: 'a' })`
+const HelpLink = styled(FlexX).attrs({ as: 'a', href: '#' })`
     font-size: 12px;
     color: ${Palette.Gray7};
     align-items: center;
@@ -137,5 +136,30 @@ const HelpLink = styled(FlexX).attrs({ as: 'a' })`
         background-repeat: no-repeat;
         background-position: center center;
         background-image: url(${IconQuestionMark});
+    }
+`;
+
+const RelativedActivities = styled(FlexX).attrs({ as: 'ul' })`
+    margin-top: 40px;
+    column-gap: 26px;
+
+    li {
+        position: relative;
+
+        &:not(:last-child)::after {
+            content: '';
+            width: 1px;
+            height: 10px;
+            background-color: ${Palette.Gray_dddddd};
+            position: absolute;
+            right: -13px;
+            top: 50%;
+            transform: translateY(calc(-50% + 2px));
+        }
+
+        a {
+            color: ${Palette.Gray7};
+            font-size: 14px;
+        }
     }
 `;
