@@ -3,6 +3,7 @@ import Checkbox from 'component/atom/Checkbox';
 import FlexX from 'component/atom/FlexX';
 import FlexY from 'component/atom/FlexY';
 import Input from 'component/atom/Input';
+import SubLayout from 'layout/SubLayout';
 import { IconQuestionMark } from 'lib/icon';
 import { useState } from 'react';
 import { Color, Palette } from 'style/variable/color';
@@ -30,45 +31,52 @@ const Login = () => {
     };
 
     return (
-        <Wrapper>
-            <Logo>
-                <a href="/">afreeca tv</a>
-            </Logo>
-            <Display>로그인 후 이용하실 수 있습니다.</Display>
-            <Major>
-                <Input type="text" defaultValue={id} placeholder="아이디" onChange={(e) => setId(e?.target?.value)} />
-                <Input type="password" placeholder="비밀번호" onChange={(e) => setPassword(e?.target?.value)} />
-                <LoginButton onClick={handleSubmit}>로그인</LoginButton>
-            </Major>
-            <Minor>
-                <FlexX style={{ columnGap: '10px' }}>
-                    <Checkbox
-                        id="maintainLogin"
-                        defaultChecked={isCheckedMaintainLogin}
-                        onClick={() => handleClickCheckbox(setIsCheckedMaintainLogin)}
-                        label="로그인 상태 유지"
+        <SubLayout>
+            <Wrapper>
+                <Logo>
+                    <a href="/">afreeca tv</a>
+                </Logo>
+                <Display>로그인 후 이용하실 수 있습니다.</Display>
+                <Major>
+                    <Input
+                        type="text"
+                        defaultValue={id}
+                        placeholder="아이디"
+                        onChange={(e) => setId(e?.target?.value)}
                     />
-                    <Checkbox
-                        id="saveId"
-                        defaultChecked={isCheckedSaveId}
-                        onClick={() => handleClickCheckbox(setIsCheckedSaveId)}
-                        label="아이디 저장"
-                    />
-                </FlexX>
-                <HelpLink>도움말</HelpLink>
-            </Minor>
-            <RelativedActivities>
-                <li>
-                    <a href="">아이디 찾기</a>
-                </li>
-                <li>
-                    <a href="">비밀번호 찾기</a>
-                </li>
-                <li>
-                    <a href="">회원가입</a>
-                </li>
-            </RelativedActivities>
-        </Wrapper>
+                    <Input type="password" placeholder="비밀번호" onChange={(e) => setPassword(e?.target?.value)} />
+                    <LoginButton onClick={handleSubmit}>로그인</LoginButton>
+                </Major>
+                <Minor>
+                    <FlexX style={{ columnGap: '10px' }}>
+                        <Checkbox
+                            id="maintainLogin"
+                            defaultChecked={isCheckedMaintainLogin}
+                            onClick={() => handleClickCheckbox(setIsCheckedMaintainLogin)}
+                            label="로그인 상태 유지"
+                        />
+                        <Checkbox
+                            id="saveId"
+                            defaultChecked={isCheckedSaveId}
+                            onClick={() => handleClickCheckbox(setIsCheckedSaveId)}
+                            label="아이디 저장"
+                        />
+                    </FlexX>
+                    <HelpLink>도움말</HelpLink>
+                </Minor>
+                <RelativedActivities>
+                    <li>
+                        <a href="">아이디 찾기</a>
+                    </li>
+                    <li>
+                        <a href="">비밀번호 찾기</a>
+                    </li>
+                    <li>
+                        <a href="">회원가입</a>
+                    </li>
+                </RelativedActivities>
+            </Wrapper>
+        </SubLayout>
     );
 };
 
