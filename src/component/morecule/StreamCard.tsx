@@ -18,7 +18,7 @@ interface IProps {
 const StreamCard = ({ isStatic = false, streamCard }: IProps) => {
     return (
         <div>
-            <Anchor to={'/'} target="_blank">
+            <Anchor to={'/streamview'} target="_blank">
                 <Thumbnail src={streamCard?.thumbnailUrl} />
                 {streamCard?.isAllowToExplore && <ExplorableBadge>탐방허용</ExplorableBadge>}
                 <ViewLaterBtn>
