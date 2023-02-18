@@ -1,11 +1,10 @@
-import Document, { DocumentContext, DocumentInitialProps } from 'next/document';
+import Document, { Html, Head, Main, NextScript, DocumentContext } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 
-export default class MyDocument extends Document {
-    static async getInitialProps(ctx: DocumentContext): Promise<DocumentInitialProps> {
+class MyDocument extends Document {
+    static async getInitialProps(ctx: DocumentContext) {
         const sheet = new ServerStyleSheet();
         const originalRenderPage = ctx.renderPage;
-
         try {
             ctx.renderPage = () =>
                 originalRenderPage({
@@ -26,4 +25,18 @@ export default class MyDocument extends Document {
             sheet.seal();
         }
     }
+
+    render() {
+        return (
+            <Html>
+                <Head>// 각종 메타 태그 및 웹 폰트</Head>
+                <body>
+                    <Main />
+                    <NextScript />
+                </body>
+            </Html>
+        );
+    }
 }
+
+export default MyDocument;

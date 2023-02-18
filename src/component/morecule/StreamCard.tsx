@@ -20,13 +20,13 @@ const StreamCard = ({ isStatic = false, streamCard }: IProps) => {
         <div>
             <Anchor href={'/streamview'} target="_blank">
                 {/* hydration */}
-                <Thumbnail src={streamCard?.thumbnailUrl} />
+                {/* <Thumbnail src={streamCard?.thumbnailUrl} /> */}
                 {streamCard?.isAllowToExplore && <ExplorableBadge>탐방허용</ExplorableBadge>}
                 <ViewLaterBtn>
                     <Icon src={IconClockRollback} />
                     나중에보기
                 </ViewLaterBtn>
-                <StreamInformation>
+                {/* <StreamInformation>
                     {!isStatic && <ProfileImg src={streamCard?.profileImageUrl} />}
                     {!isStatic && <StreamTitle>{streamCard?.title}</StreamTitle>}
                     {!isStatic && (
@@ -40,7 +40,7 @@ const StreamCard = ({ isStatic = false, streamCard }: IProps) => {
                         </Details>
                     )}
                     <TimeBadge>{'01-01 15:13 방송시작'}</TimeBadge>
-                </StreamInformation>
+                </StreamInformation> */}
             </Anchor>
             {isStatic && (
                 <StreamInformationForStatic>
