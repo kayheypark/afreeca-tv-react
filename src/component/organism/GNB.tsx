@@ -20,38 +20,37 @@ const GNB = () => {
                 <ul>
                     <li>
                         <Link href="/">
-                            {/* <NavIcon src={IconHome.src} /> */}
-                            {/* <Image src="/asset/icon/ico_home.svg" alt="Vercel Logo" width={100} height={24} priority /> */}
+                            <NavIcon src={IconHome.src} />
                             <NavText>홈</NavText>
                         </Link>
                     </li>
                     <li>
                         <Link href="/worldcup2022">
-                            {/* <NavIcon src={IconWorldcup.src} /> */}
+                            <NavIcon src={IconWorldcup.src} />
                             <NavText>2022 카타르월드컵</NavText>
                         </Link>
                     </li>
                     <li>
                         <Link href="/awards2022">
-                            {/* <NavIcon src={IconCrown.src} /> */}
+                            <NavIcon src={IconCrown.src} />
                             <NavText>2022 BJ대상</NavText>
                         </Link>
                     </li>
                     <li>
                         <Link href="/esports">
-                            {/* <NavIcon src={IconEsports.src} /> */}
+                            <NavIcon src={IconEsports.src} />
                             <NavText>e스포츠</NavText>
                         </Link>
                     </li>
                     <li>
                         <Link href="/vod">
-                            {/* <NavIcon src={IconVideo.src} /> */}
+                            <NavIcon src={IconVideo.src} />
                             <NavText>VOD</NavText>
                         </Link>
                     </li>
                     <li>
                         <Link href="/mypage">
-                            {/* <NavIcon src={IconStar.src} /> */}
+                            <NavIcon src={IconStar.src} />
                             <NavText>MY</NavText>
                         </Link>
                     </li>

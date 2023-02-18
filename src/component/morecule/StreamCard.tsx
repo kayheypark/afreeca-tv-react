@@ -20,13 +20,13 @@ const StreamCard = ({ isStatic = false, streamCard }: IProps) => {
         <div>
             <Anchor href={'/streamview'} target="_blank">
                 {/* hydration */}
-                {/* <Thumbnail src={streamCard?.thumbnailUrl} /> */}
+                <Thumbnail src={streamCard?.thumbnailUrl} />
                 {streamCard?.isAllowToExplore && <ExplorableBadge>탐방허용</ExplorableBadge>}
                 <ViewLaterBtn>
                     <Icon src={IconClockRollback} />
                     나중에보기
                 </ViewLaterBtn>
-                {/* <StreamInformation>
+                <StreamInformation>
                     {!isStatic && <ProfileImg src={streamCard?.profileImageUrl} />}
                     {!isStatic && <StreamTitle>{streamCard?.title}</StreamTitle>}
                     {!isStatic && (
@@ -40,7 +40,7 @@ const StreamCard = ({ isStatic = false, streamCard }: IProps) => {
                         </Details>
                     )}
                     <TimeBadge>{'01-01 15:13 방송시작'}</TimeBadge>
-                </StreamInformation> */}
+                </StreamInformation>
             </Anchor>
             {isStatic && (
                 <StreamInformationForStatic>
@@ -144,7 +144,7 @@ const StreamInformation = styled(FlexY)`
     }
 `;
 
-const ProfileImg = styled(Icon).attrs({ as: 'a', href: '#' })`
+const ProfileImg = styled(Icon).attrs({ as: 'button' })`
     position: absolute;
     top: 0;
     left: 0;
@@ -154,7 +154,7 @@ const ProfileImg = styled(Icon).attrs({ as: 'a', href: '#' })`
     height: 42px;
 `;
 
-const StreamTitle = styled(FlexX).attrs({ as: 'a', className: 'StreamTitle', href: '#' })`
+const StreamTitle = styled(FlexX).attrs({ as: 'button', className: 'StreamTitle' })`
     display: -webkit-box;
     -webkit-box-orient: vertical;
     margin-left: 54px;

@@ -56,14 +56,14 @@ const MainBanner = () => {
                         <SwiperSlide key={item.id} tag="li">
                             <Anchor href={item.URL} target="_blank">
                                 {/* hydration */}
-                                {/* <Image src={item.imageURL}>
+                                <Image src={item.imageURL}>
                                     {item.bannerType === BannerType.Live && <LiveBadge>LIVE</LiveBadge>}
-                                </Image> */}
-                                {/* <TextWapper>
+                                </Image>
+                                <TextWapper>
                                     <span>{item.periodText}</span>
                                     <strong>{item.titleText}</strong>
                                     <p>{item.subText}</p>
-                                </TextWapper> */}
+                                </TextWapper>
                             </Anchor>
                         </SwiperSlide>
                     );
