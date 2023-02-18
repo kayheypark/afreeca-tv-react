@@ -5,10 +5,9 @@
     "homepage": "",
     "main": "./src/index.tsx",
     "scripts": {
-        "start": "webpack-dev-server --mode development",
-        "start:prod": "webpack-dev-server --mode production",
-        "build:dev": "webpack --mode development",
-        "build": "webpack --mode production"
+        "dev": "next",
+        "start": "next start",
+        "next build": "next build"
     },
     "keywords": [],
     "author": "박경호(kayheypark)",
@@ -43,9 +42,9 @@
         "webpack-dev-server": "^4.11.1"
     },
     "dependencies": {
+        "next": "^13.1.6",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
-        "react-router-dom": "^6.4.5",
         "swiper": "^8.4.5",
         "uuid": "^9.0.0"
     }

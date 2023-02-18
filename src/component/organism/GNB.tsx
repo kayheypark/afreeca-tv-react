@@ -1,10 +1,12 @@
 import FlexY from 'component/atom/FlexY';
 import Icon from 'component/atom/Icon';
 import { IconHome, IconWorldcup, IconCrown, IconEsports, IconVideo, IconStar } from 'lib/icon';
-import { NavLink } from 'react-router-dom';
+import Link from 'next/link';
+import { useEffect } from 'react';
 import { ColorUI } from 'style/variable/color';
 import { Length } from 'style/variable/spacing';
 import styled from 'styled-components';
+import Image from 'next/image';
 
 const activeStyle: React.CSSProperties = {
     backgroundColor: ColorUI.GNBActiveBG,
@@ -17,40 +19,41 @@ const GNB = () => {
             <MainGNB>
                 <ul>
                     <li>
-                        <NavLink to="/" style={({ isActive }) => (isActive ? activeStyle : undefined)}>
-                            <NavIcon src={IconHome} />
+                        <Link href="/">
+                            {/* <NavIcon src={IconHome.src} /> */}
+                            {/* <Image src="/asset/icon/ico_home.svg" alt="Vercel Logo" width={100} height={24} priority /> */}
                             <NavText>홈</NavText>
-                        </NavLink>
+                        </Link>
                     </li>
                     <li>
-                        <NavLink to="/worldcup2022">
-                            <NavIcon src={IconWorldcup} />
+                        <Link href="/worldcup2022">
+                            {/* <NavIcon src={IconWorldcup.src} /> */}
                             <NavText>2022 카타르월드컵</NavText>
-                        </NavLink>
+                        </Link>
                     </li>
                     <li>
-                        <NavLink to="/awards2022">
-                            <NavIcon src={IconCrown} />
+                        <Link href="/awards2022">
+                            {/* <NavIcon src={IconCrown.src} /> */}
                             <NavText>2022 BJ대상</NavText>
-                        </NavLink>
+                        </Link>
                     </li>
                     <li>
-                        <NavLink to="/esports">
-                            <NavIcon src={IconEsports} />
+                        <Link href="/esports">
+                            {/* <NavIcon src={IconEsports.src} /> */}
                             <NavText>e스포츠</NavText>
-                        </NavLink>
+                        </Link>
                     </li>
                     <li>
-                        <NavLink to="/vod">
-                            <NavIcon src={IconVideo} />
+                        <Link href="/vod">
+                            {/* <NavIcon src={IconVideo.src} /> */}
                             <NavText>VOD</NavText>
-                        </NavLink>
+                        </Link>
                     </li>
                     <li>
-                        <NavLink to="/mypage" style={({ isActive }) => (isActive ? activeStyle : undefined)}>
-                            <NavIcon src={IconStar} />
+                        <Link href="/mypage">
+                            {/* <NavIcon src={IconStar.src} /> */}
                             <NavText>MY</NavText>
-                        </NavLink>
+                        </Link>
                     </li>
                 </ul>
             </MainGNB>

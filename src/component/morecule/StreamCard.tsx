@@ -1,6 +1,5 @@
 import FlexX from 'component/atom/FlexX';
 import Icon from 'component/atom/Icon';
-import { Link } from 'react-router-dom';
 import { Color, Palette } from 'style/variable/color';
 import styled from 'styled-components';
 import { IconClockRollback, IconUsers, IconUsersGray } from 'lib/icon';
@@ -9,6 +8,7 @@ import { Transition } from 'style/variable/transition';
 import Button from 'component/atom/Button';
 import FlexY from 'component/atom/FlexY';
 import { IStreamCard } from 'lib/model/StreamCard';
+import Link from 'next/link';
 
 interface IProps {
     isStatic?: boolean;
@@ -18,7 +18,8 @@ interface IProps {
 const StreamCard = ({ isStatic = false, streamCard }: IProps) => {
     return (
         <div>
-            <Anchor to={'/streamview'} target="_blank">
+            <Anchor href={'/streamview'} target="_blank">
+                {/* hydration */}
                 <Thumbnail src={streamCard?.thumbnailUrl} />
                 {streamCard?.isAllowToExplore && <ExplorableBadge>탐방허용</ExplorableBadge>}
                 <ViewLaterBtn>

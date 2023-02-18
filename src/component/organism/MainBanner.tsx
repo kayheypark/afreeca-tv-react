@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper';
 import 'swiper/css';
@@ -13,6 +12,7 @@ import { DummyMainBanner } from 'lib/dummy/MainBanner';
 import { IMainBanner } from 'lib/model/MainBanner';
 import { BannerType } from 'lib/enum/MainBanner';
 import Badge from 'component/atom/Badge';
+import Link from 'next/link';
 
 const MainBanner = () => {
     const [items, setItems] = useState<IMainBanner[] | undefined>(DummyMainBanner);
@@ -54,15 +54,16 @@ const MainBanner = () => {
                 {items?.map((item) => {
                     return (
                         <SwiperSlide key={item.id} tag="li">
-                            <Anchor to={item.URL} target="_blank">
-                                <Image src={item.imageURL}>
+                            <Anchor href={item.URL} target="_blank">
+                                {/* hydration */}
+                                {/* <Image src={item.imageURL}>
                                     {item.bannerType === BannerType.Live && <LiveBadge>LIVE</LiveBadge>}
-                                </Image>
-                                <TextWapper>
+                                </Image> */}
+                                {/* <TextWapper>
                                     <span>{item.periodText}</span>
                                     <strong>{item.titleText}</strong>
                                     <p>{item.subText}</p>
-                                </TextWapper>
+                                </TextWapper> */}
                             </Anchor>
                         </SwiperSlide>
                     );

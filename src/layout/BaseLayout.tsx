@@ -12,19 +12,12 @@ import { Length } from 'style/variable/spacing';
 import { ZIndex } from 'style/variable/zIndex';
 import GNB from 'component/organism/GNB';
 import TopButton from 'component/morecule/TopButton';
-import { useNavigate } from 'react-router-dom';
 
 interface IProps {
-    children: JSX.Element;
+    children: JSX.Element | any;
 }
 
 const BaseLayout = ({ children }: IProps) => {
-    const navigate = useNavigate();
-
-    const handleClickLoginButton = () => {
-        navigate('/login');
-    };
-
     return (
         <>
             <Header>
@@ -41,7 +34,7 @@ const BaseLayout = ({ children }: IProps) => {
                     <UtilButton src={IconBell} popover={'알림'}>
                         알림
                     </UtilButton>
-                    <LoginButton onClick={handleClickLoginButton}>로그인</LoginButton>
+                    <LoginButton>로그인</LoginButton>
                     <UtilButton src={Icon3Dot} popover={'설정'}>
                         설정
                     </UtilButton>
