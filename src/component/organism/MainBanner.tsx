@@ -130,7 +130,7 @@ const NavBtn = styled.button`
     font-size: 0;
     width: 42px;
     height: calc(100% + 2.4px);
-    background-size: 10px auto;
+    background-size: 10px 19px;
     background-repeat: no-repeat;
     background-position: center;
     background-color: ${Palette.White};
